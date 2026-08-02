@@ -1,0 +1,82 @@
+.tools-card{
+    background:#fff;
+    border-radius:20px;
+    padding:28px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.tools-heading{
+    font-size:28px;
+    font-weight:700;
+    color:#111827;
+    margin-bottom:25px;
+}
+
+.tools-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.tool-box{
+    border:1px solid #E5E7EB;
+    border-radius:18px;
+    padding:22px;
+    transition:.3s;
+    cursor:pointer;
+    background:#fff;
+}
+
+.tool-box:hover{
+    transform:translateY(-6px);
+    box-shadow:0 12px 25px rgba(0,0,0,.08);
+}
+
+.tool-icon{
+    width:60px;
+    height:60px;
+    border-radius:15px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
+    margin-bottom:18px;
+}
+
+.tool-box h3{
+    font-size:20px;
+    color:#111827;
+    margin-bottom:10px;
+}
+
+.tool-box p{
+    color:#6B7280;
+    font-size:15px;
+    line-height:1.6;
+    margin-bottom:22px;
+}
+
+.tool-btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:12px;
+    background:#7C3AED;
+    color:white;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.tool-btn:hover{
+    background:#6D28D9;
+}
+
+@media(max-width:900px){
+
+.tools-grid{
+    grid-template-columns:1fr;
+}
+
+}

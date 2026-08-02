@@ -1,0 +1,19 @@
+.main-page {
+  display: flex;
+  height: 100vh;
+}
+
+.right-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 250px; /* Same as sidebar width */
+}
+
+.main-content {
+  flex: 1;
+  margin-top: 70px; /* Same as header height */
+  padding: 30px;
+  overflow-y: auto;
+  background: #f8fafc;
+}

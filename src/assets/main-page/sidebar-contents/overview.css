@@ -1,0 +1,53 @@
+.overview-first-part {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.firstBoxes {
+  width: 230px;
+  background: white;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+.firstBoxes-top{
+  display: flex;
+}
+
+.firstBoxes-icon {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.firstBoxes-content h4 {
+  font-size: 15px;
+  font-weight: 500;
+  color: #555;
+
+  margin-left: 10px;
+}
+
+.firstBoxes-content h2 {
+  margin: 8px 0;
+  font-size: 30px;
+}
+
+.firstBoxes-content p {
+  color: #888;
+  font-size: 14px;
+}
+
+.firstBoxes-graph {
+  margin-top: 20px;
+  height: 45px;
+  border-bottom: 3px solid;
+  border-radius: 20px;
+}

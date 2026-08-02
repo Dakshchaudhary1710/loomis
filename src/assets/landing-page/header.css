@@ -1,0 +1,64 @@
+.full-head{
+  height: 90px;
+  width: 100%;
+display: flex;
+border-bottom: solid;
+border-width: 1px;
+}
+.left-part{
+  width: 22%;
+  height: 100%;
+  display: flex;
+align-items: center;
+}
+.left-title-icon{
+  height: 20px;
+  width: 25px;
+  background-color: black;
+  margin-left: 12px;
+  margin-right: 12px;
+
+}
+.left-title{
+font-size: 19px;
+font-weight: 700;
+}
+.middle-part{
+  width: 40%;
+  height: 100%;
+display: flex;
+align-items: center;
+margin-right: 5px;
+justify-content: space-between;
+
+
+}
+.middle-elements{
+
+  font-size: 16px;
+
+}
+.right-part{
+  width: 38%;
+  height: 100%;
+
+  align-items: end;
+  justify-content: end;
+}
+.right-end{
+  margin-left: 300px;
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+}
+.right-end-1{
+  margin-right: 25px;
+
+}
+.right-end-2{
+  height: 40px;
+  width: 130px;
+  font-size: 15px;
+}
+
