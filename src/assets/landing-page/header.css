@@ -36,7 +36,12 @@ justify-content: space-between;
 .middle-elements{
 
   font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
 
+}
+.middle-elements:hover{
+color: rgba(116, 78, 169, 0.906);
 }
 .right-part{
   width: 38%;
@@ -54,11 +59,37 @@ justify-content: space-between;
 }
 .right-end-1{
   margin-right: 25px;
+  cursor: pointer;
+  font-size: 20px;
 
 }
+.right-end-1:hover{
+  text-decoration: underline;
+}
+
 .right-end-2{
   height: 40px;
   width: 130px;
   font-size: 15px;
+ background-color: rgb(148, 142, 241);
+ border-radius: 10px;
+ border: 1px;
+ border-color:  rgb(148, 142, 241);
+}
+.modal select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  box-sizing: border-box;
+  background: white;
+  margin-bottom: 15px;
+}
+
+.modal select:focus {
+  border-color: #6C3CF0;
+  box-shadow: 0 0 0 3px rgba(108, 60, 240, 0.15);
 }
 

@@ -5,7 +5,9 @@ import {
   FaClock,
   FaStar,
   FaShieldHeart,
+  FaCode
 } from "react-icons/fa6";
+import { TbBrackets } from "react-icons/tb";
 
 const firstBoxes = [
   {
