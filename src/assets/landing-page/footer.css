@@ -34,8 +34,10 @@ margin-top: 20px;
 .last-block{
   width: 18%;
   height: 160px;
-  background-color: rgb(252, 235, 209);
+  background-color: rgb(246, 239, 239);
   margin-right: 5px;
+  border: 1px;
+  border-color: rgb(147, 146, 146) ;
 }
 .last-block-icon {
   width: 50px;
