@@ -1,9 +1,38 @@
-.overview {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
+.overview{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+    padding:25px;
+    width:100%;
+    box-sizing:border-box;
+}
 
-    width: 100%;
+/* ---------- First Row ---------- */
 
-    box-sizing: border-box;
+.stats-row{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:20px;
+}
+
+/* ---------- Second Row ---------- */
+
+.middle-row{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:20px;
+}
+
+/* ---------- Third Row ---------- */
+
+.bottom-row{
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr;
+    gap:20px;
+}
+
+/* ---------- Fourth Row ---------- */
+
+.last-row{
+    width:100%;
 }

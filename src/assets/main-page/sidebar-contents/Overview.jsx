@@ -10,6 +10,12 @@ import {
 
 import StatsCard from "./StatsCard/StatsCard";
 import InterviewGauge from "./InterviewGauge/InterviewGauge";
+import TopicMastery from "./TopicMastery/TopicMastery";
+import UpcomingPlan from "./UpcomingPlan/UpcomingPlan";
+import WeeklyHeatmap from "./WeeklyHeatmap/WeeklyHeatmap";
+import Achievement from "./Achievement/Achievement";
+import DailyTip from "./DailyTip/DailyTip";
+import NextInterview from "./NextInterview/NextInterview";
 
 export default function Overview() {
   const dashboard = {
@@ -71,59 +77,81 @@ export default function Overview() {
   };
 
   return (
-    <>
-    
     <div className="overview">
-      <StatsCard
-        title="Practice Streak"
-        value={dashboard.practiceStreak}
-        subtitle="Days in a row"
-        icon={<FaBullseye />}
-        color="#6C3CF5"
-        data={dashboard.streakGraph}
-      />
 
-      <StatsCard
-        title="Best Performance"
-        value={`${dashboard.bestPerformance}%`}
-        subtitle="On System Design"
-        icon={<FaChartLine />}
-        color="#22C55E"
-        data={dashboard.performanceGraph}
-      />
+        {/* -------- Row 1 -------- */}
 
-      <StatsCard
-        title="Total Practice Time"
-        value={dashboard.practiceTime}
-        subtitle="This Month"
-        icon={<FaClock />}
-        color="#F97316"
-        data={dashboard.timeGraph}
-      />
+        <div className="stats-row">
 
-      <StatsCard
-        title="Questions Attempted"
-        value={dashboard.questionsAttempted}
-        subtitle="Across all Topics"
-        icon={<FaStar />}
-        color="#3B82F6"
-        data={dashboard.questionsGraph}
-      />
+            <StatsCard
+                title="Practice Streak"
+                value={dashboard.practiceStreak}
+                subtitle="Days in a row"
+                icon={<FaBullseye />}
+                color="#6C3CF5"
+                data={dashboard.streakGraph}
+            />
 
-      <StatsCard
-        title="Confidence Score"
-        value={`${dashboard.confidence}%`}
-        subtitle="Keep Building!"
-        icon={<FaAward />}
-        color="#EC4899"
-        data={dashboard.confidenceGraph}
-      />
+            <StatsCard
+                title="Best Performance"
+                value={`${dashboard.bestPerformance}%`}
+                subtitle="On System Design"
+                icon={<FaChartLine />}
+                color="#22C55E"
+                data={dashboard.performanceGraph}
+            />
+
+            <StatsCard
+                title="Total Practice Time"
+                value={dashboard.practiceTime}
+                subtitle="This Month"
+                icon={<FaClock />}
+                color="#F97316"
+                data={dashboard.timeGraph}
+            />
+
+            <StatsCard
+                title="Questions Attempted"
+                value={dashboard.questionsAttempted}
+                subtitle="Across all Topics"
+                icon={<FaStar />}
+                color="#3B82F6"
+                data={dashboard.questionsGraph}
+            />
+
+            <StatsCard
+                title="Confidence Score"
+                value={`${dashboard.confidence}%`}
+                subtitle="Keep Building!"
+                icon={<FaAward />}
+                color="#EC4899"
+                data={dashboard.confidenceGraph}
+            />
+
+        </div>
+
+        {/* -------- Row 2 -------- */}
+
+        <div className="middle-row">
+            <InterviewGauge />
+            <TopicMastery />
+            <UpcomingPlan />
+        </div>
+
+        {/* -------- Row 3 -------- */}
+
+        <div className="bottom-row">
+            <WeeklyHeatmap />
+            <Achievement />
+            <DailyTip />
+        </div>
+
+        {/* -------- Row 4 -------- */}
+
+        <div className="last-row">
+            <NextInterview />
+        </div>
+
     </div>
-    <div className="overview-grid">
-
-    <InterviewGauge score={76} />
-
-</div>
-    </>
-  );
+);
 }
