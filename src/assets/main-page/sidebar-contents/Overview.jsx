@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 
 import StatsCard from "./StatsCard/StatsCard";
+import InterviewGauge from "./InterviewGauge/InterviewGauge";
 
 export default function Overview() {
   const dashboard = {
@@ -70,6 +71,8 @@ export default function Overview() {
   };
 
   return (
+    <>
+    
     <div className="overview">
       <StatsCard
         title="Practice Streak"
@@ -116,5 +119,11 @@ export default function Overview() {
         data={dashboard.confidenceGraph}
       />
     </div>
+    <div className="overview-grid">
+
+    <InterviewGauge score={76} />
+
+</div>
+    </>
   );
 }
