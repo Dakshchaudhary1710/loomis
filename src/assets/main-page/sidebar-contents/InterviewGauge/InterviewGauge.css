@@ -3,19 +3,19 @@
     border-radius:20px;
     border:1px solid #e8e8e8;
     box-shadow:0 10px 25px rgba(0,0,0,.05);
-    padding:24px;
+
     box-sizing:border-box;
     height:100%;
 }
 
 .card h2{
     margin:0;
-    font-size:22px;
+    font-size:12px;
     color:#1f2937;
 }
 
 .placeholder{
-    margin-top:30px;
+
     height:220px;
 
     display:flex;

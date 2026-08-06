@@ -1,5 +1,42 @@
-.full-qbank{
-  width: 30px;
-  height: 200px;
-  background-color: aqua;
+.question-bank{
+
+
+}
+
+.question-bank-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+}
+
+.question-bank-header h1{
+
+    margin:0;
+
+    font-size:32px;
+
+    color:#1b1b1b;
+}
+
+.question-bank-header p{
+
+
+margin-top: 3px;
+    color:#666;
+
+    font-size:16px;
+}
+
+.question-bank-stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
 }
