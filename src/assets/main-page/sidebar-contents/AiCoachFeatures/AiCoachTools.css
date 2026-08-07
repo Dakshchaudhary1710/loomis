@@ -1,0 +1,89 @@
+.coachTools {
+    width: 360px;
+    padding: 20px;
+    background: #fff;
+    border-left: 1px solid #eee;
+}
+
+.coachTools h2 {
+    margin: 0;
+    font-size: 28px;
+    color: #1f2937;
+}
+
+.coachTools>p {
+    color: #6b7280;
+    margin-bottom: 25px;
+}
+
+.toolCard {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid #ececec;
+    border-radius: 18px;
+    padding: 18px;
+    margin-bottom: 18px;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.toolCard:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+}
+
+.toolIcon {
+    width: 58px;
+    height: 58px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.toolContent {
+    flex: 1;
+}
+
+.toolContent h4 {
+    margin: 0 0 6px;
+    font-size: 18px;
+}
+
+.toolContent span {
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+.arrow {
+    color: #9ca3af;
+}
+
+.quickTip {
+    margin-top: 25px;
+    background: linear-gradient(135deg,#f7f3ff,#f5f5ff);
+    border-radius: 22px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.quickTip h4 {
+    margin: 0;
+}
+
+.quickTip p {
+    margin-top: 10px;
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+.quickTip img {
+    width: 120px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
