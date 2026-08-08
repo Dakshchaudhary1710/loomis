@@ -1,5 +1,6 @@
 import "./studyPlan.css";
 import AIMentor from "./AIMentor/AIMentor";
+import LearningRoadmap from "./LearningRoadmap/LearningRoadmap";
 
 export default function StudyPlan() {
   return (
@@ -12,7 +13,9 @@ export default function StudyPlan() {
         <div className="study-plan-header">
           <div>
             <h1>Study Plan</h1>
-            <p>Your personalized AI roadmap to crack interviews.</p>
+            <p>
+              Your personalized AI roadmap to crack interviews.
+            </p>
           </div>
 
           <button className="generate-plan-btn">
@@ -21,9 +24,7 @@ export default function StudyPlan() {
         </div>
 
         {/* Learning Roadmap */}
-        <div className="study-card">
-          <h2>Learning Roadmap</h2>
-        </div>
+        <LearningRoadmap />
 
         {/* Upcoming Schedule */}
         <div className="study-card">

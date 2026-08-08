@@ -4,7 +4,7 @@
 
 
   display: flex;
-  gap: 18px;
+  gap: 20px;
 
   background: #f8f9fc;
 }
@@ -18,7 +18,7 @@
 
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 20px;
 }
 
 
@@ -30,44 +30,36 @@
 }
 
 
-/* PAGE HEADER */
+/* HEADER */
 
 .study-plan-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  margin-bottom: 4px;
 }
 
 .study-plan-header h1 {
   margin: 0;
 
-  font-size: 30px;
-  font-weight: 700;
-
+  font-size: 28px;
   color: #111936;
 }
 
 .study-plan-header p {
   margin: 6px 0 0;
 
-  color: #64748b;
   font-size: 14px;
+  color: #64748b;
 }
 
 
-/* GENERATE BUTTON */
+/* GENERATE PLAN BUTTON */
 
 .generate-plan-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
-  padding: 12px 18px;
-
   border: none;
   border-radius: 9px;
+
+  padding: 12px 18px;
 
   background: linear-gradient(
     90deg,
@@ -88,32 +80,36 @@
 }
 
 
-/* COMMON CARD */
+/* UPCOMING SCHEDULE CARD */
 
 .study-card {
   background: white;
 
   border: 1px solid #e6e8f0;
-  border-radius: 14px;
+  border-radius: 16px;
 
-  padding: 22px;
+  padding: 24px;
 
-  box-shadow: 0 3px 15px rgba(30, 27, 75, 0.03);
+  box-shadow: 0 3px 15px rgba(30, 27, 75, 0.04);
+}
+
+.study-card h2 {
+  margin: 0;
+
+  font-size: 20px;
+  color: #111936;
 }
 
 
 /* RESPONSIVE */
 
-@media (max-width: 1100px) {
-
+@media (max-width: 1000px) {
   .study-plan-right {
     width: 330px;
   }
-
 }
 
-@media (max-width: 900px) {
-
+@media (max-width: 850px) {
   .study-plan {
     flex-direction: column;
   }
@@ -121,19 +117,4 @@
   .study-plan-right {
     width: 100%;
   }
-
-}
-
-@media (max-width: 600px) {
-
-  .study-plan {
-    padding: 18px;
-  }
-
-  .study-plan-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-  }
-
 }

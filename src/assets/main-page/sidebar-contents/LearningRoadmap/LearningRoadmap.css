@@ -1,0 +1,341 @@
+.roadmap-card {
+  width: 100%;
+  background: #ffffff;
+
+  border: 1px solid #e6e8f0;
+  border-radius: 16px;
+
+  padding: 24px;
+
+  box-shadow: 0 3px 15px rgba(30, 27, 75, 0.04);
+}
+
+
+/* HEADER */
+
+.roadmap-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 24px;
+}
+
+.roadmap-header h2 {
+  margin: 0;
+
+  color: #111936;
+  font-size: 20px;
+}
+
+.roadmap-header p {
+  margin: 6px 0 0;
+
+  color: #64748b;
+  font-size: 13px;
+}
+
+.roadmap-edit-btn {
+  border: 1px solid #ddd8ff;
+  background: #f5f2ff;
+
+  color: #5b35e8;
+
+  padding: 8px 14px;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+/* OVERALL PROGRESS */
+
+.roadmap-progress {
+  margin-bottom: 28px;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 8px;
+
+  font-size: 13px;
+  color: #64748b;
+}
+
+.progress-info strong {
+  color: #5b35e8;
+  font-size: 14px;
+}
+
+.progress-bar {
+  height: 8px;
+
+  background: #eeeef5;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    #7655f5,
+    #5425df
+  );
+
+  border-radius: 20px;
+}
+
+
+/* ROADMAP */
+
+.roadmap {
+  display: flex;
+  flex-direction: column;
+}
+
+.roadmap-week {
+  display: flex;
+}
+
+
+/* TIMELINE */
+
+.timeline {
+  width: 42px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeline-dot {
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f1efff;
+
+  color: #7655f5;
+
+  border: 2px solid #ddd8ff;
+
+  z-index: 2;
+}
+
+.timeline-dot svg {
+  font-size: 19px;
+}
+
+.timeline-dot.current {
+  background: #7655f5;
+  border-color: #7655f5;
+
+  box-shadow: 0 0 0 5px #eeeaff;
+}
+
+.timeline-dot.upcoming {
+  background: #ffffff;
+  border-color: #d8dbe5;
+}
+
+.timeline-line {
+  width: 2px;
+
+  flex: 1;
+
+  background: #e5e7eb;
+
+  margin: 4px 0;
+}
+
+
+/* WEEK CONTENT */
+
+.week-content {
+  flex: 1;
+
+  padding: 0 0 28px 14px;
+}
+
+.week-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 12px;
+}
+
+.week-label {
+  color: #7655f5;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+}
+
+.week-heading h3 {
+  margin: 3px 0 0;
+
+  font-size: 16px;
+  color: #18203b;
+}
+
+.current-badge {
+  padding: 5px 10px;
+
+  background: #eeeaff;
+  color: #6844ed;
+
+  border-radius: 20px;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+/* TOPICS */
+
+.roadmap-topics {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.roadmap-topic {
+  position: relative;
+
+  padding: 14px 15px;
+
+  border: 1px solid #edf0f5;
+  border-radius: 11px;
+
+  background: #ffffff;
+
+  transition: 0.2s;
+}
+
+.roadmap-topic:hover {
+  border-color: #dcd5ff;
+  transform: translateY(-1px);
+}
+
+
+/* TOPIC INFO */
+
+.topic-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topic-info h4 {
+  margin: 0 0 5px;
+
+  color: #1f2937;
+
+  font-size: 14px;
+}
+
+.topic-info strong {
+  color: #5b35e8;
+
+  font-size: 13px;
+}
+
+.topic-time {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  color: #94a3b8;
+
+  font-size: 11px;
+}
+
+.topic-time svg {
+  font-size: 13px;
+}
+
+
+/* TOPIC PROGRESS */
+
+.topic-progress {
+  height: 5px;
+
+  background: #f0f1f5;
+
+  border-radius: 10px;
+
+  margin-top: 10px;
+
+  overflow: hidden;
+}
+
+.topic-progress-fill {
+  height: 100%;
+
+  background: #7655f5;
+
+  border-radius: 10px;
+}
+
+
+/* COMPLETED */
+
+.roadmap-topic.completed {
+  background: #fbfffc;
+}
+
+.roadmap-topic.completed
+.topic-progress-fill {
+  background: #22c55e;
+}
+
+
+/* UPCOMING */
+
+.roadmap-topic.upcoming {
+  opacity: 0.75;
+}
+
+
+/* CONTINUE BUTTON */
+
+.continue-btn {
+  margin-top: 12px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #5b35e8;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.continue-btn svg {
+  font-size: 15px;
+}
