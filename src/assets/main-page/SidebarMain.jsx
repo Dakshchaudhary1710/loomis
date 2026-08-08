@@ -6,7 +6,7 @@ import {
   HiMicrophone,
 } from "react-icons/hi";
 import { FaQuoteLeft } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Sidebar() {
   return (
@@ -21,29 +21,29 @@ export default function Sidebar() {
       </div>
 
       <div className="sidebar-menu">
-        <Link to="/main/overview" className="menu-item active">
+       <NavLink to="/main/overview" className="menu-item active">
           <HiHome />
           <span>Overview</span>
-        </Link>
+       </NavLink>
 
-        <Link to="/main/aicoach" className="menu-item">
+        <NavLink to="/main/aicoach" className="menu-item">
           <HiSparkles />
           <span>AI Coach</span>
-        </Link>
+        </NavLink>
 
-        <Link to="/main/studyplan" className="menu-item">
+        <NavLink to="/main/studyplan" className="menu-item">
           <HiAcademicCap />
           <span>Study Plan</span>
-        </Link>
+         </NavLink>
 
-        <Link to="/main/voiceanalysis" className="menu-item">
+        <NavLink to="/main/voiceanalysis" className="menu-item">
           <HiMicrophone />
           <span>Voice Analysis</span>
-        </Link>
-        <Link to="/main/questionbank" className="menu-item">
+       </NavLink>
+        <NavLink to="/main/questionbank" className="menu-item">
          <HiMicrophone />
         <span>Question Bank</span>
-        </Link>
+        </NavLink>
       </div>
       <div className="quote-card">
   <FaQuoteLeft className="quote-icon" />

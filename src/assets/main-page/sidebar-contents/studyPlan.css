@@ -1,0 +1,139 @@
+.study-plan {
+  width: 100%;
+  min-height: 100%;
+
+
+  display: flex;
+  gap: 18px;
+
+  background: #f8f9fc;
+}
+
+
+/* LEFT SIDE */
+
+.study-plan-main {
+  flex: 1;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+
+/* RIGHT SIDE */
+
+.study-plan-right {
+  width: 380px;
+  flex-shrink: 0;
+}
+
+
+/* PAGE HEADER */
+
+.study-plan-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 4px;
+}
+
+.study-plan-header h1 {
+  margin: 0;
+
+  font-size: 30px;
+  font-weight: 700;
+
+  color: #111936;
+}
+
+.study-plan-header p {
+  margin: 6px 0 0;
+
+  color: #64748b;
+  font-size: 14px;
+}
+
+
+/* GENERATE BUTTON */
+
+.generate-plan-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 12px 18px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: linear-gradient(
+    90deg,
+    #6738f5,
+    #5425df
+  );
+
+  color: white;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.generate-plan-btn:hover {
+  box-shadow: 0 6px 16px rgba(103, 56, 245, 0.25);
+}
+
+
+/* COMMON CARD */
+
+.study-card {
+  background: white;
+
+  border: 1px solid #e6e8f0;
+  border-radius: 14px;
+
+  padding: 22px;
+
+  box-shadow: 0 3px 15px rgba(30, 27, 75, 0.03);
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+
+  .study-plan-right {
+    width: 330px;
+  }
+
+}
+
+@media (max-width: 900px) {
+
+  .study-plan {
+    flex-direction: column;
+  }
+
+  .study-plan-right {
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .study-plan {
+    padding: 18px;
+  }
+
+  .study-plan-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+}
