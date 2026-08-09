@@ -1,5 +1,6 @@
 import "./aicoach.css";
 import AICoachTools from "./AiCoach-contents/AiCoachFeatures/AICoachTools";
+import AIchatBot from "./AiCoach-contents/AiCoachFeatures/aichat/AIchatBot"
 
 export default function Aicoach() {
   return (
@@ -12,7 +13,7 @@ export default function Aicoach() {
 
       {/* Center Section */}
       <div className="chatSection">
-        <h2>AI chatbot</h2>
+        <AIchatBot/>
       </div>
 
       {/* Right Section */}
