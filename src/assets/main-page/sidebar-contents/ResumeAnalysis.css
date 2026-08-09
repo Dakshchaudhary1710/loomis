@@ -1,0 +1,501 @@
+.resume-analysis {
+  width: 100%;
+
+  box-sizing: border-box;
+}
+
+
+/* ================= HEADER ================= */
+
+.resume-analysis-header {
+  margin-bottom: 28px;
+}
+
+.resume-analysis-header h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  color: #202124;
+}
+
+.resume-analysis-header p {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #737783;
+}
+
+
+/* ================= INPUT GRID ================= */
+
+.input-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+
+/* ================= INPUT CARD ================= */
+
+.input-card {
+  background: #ffffff;
+  border: 1px solid #e8e8ef;
+  border-radius: 16px;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.card-heading {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 20px;
+}
+
+.heading-icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f0edff;
+  color: #6c5ce7;
+
+  border-radius: 10px;
+
+  font-size: 18px;
+}
+
+.card-heading h2 {
+  margin: 0;
+
+  font-size: 17px;
+  color: #24262d;
+}
+
+.card-heading p {
+  margin: 4px 0 0;
+
+  font-size: 12px;
+  color: #858894;
+}
+
+
+/* ================= UPLOAD ================= */
+
+.upload-area {
+  min-height: 190px;
+
+  border: 2px dashed #dcd9ed;
+  border-radius: 13px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.upload-area:hover {
+  border-color: #7a68e8;
+  background: #faf9ff;
+}
+
+.upload-area input {
+  display: none;
+}
+
+.upload-icon {
+  font-size: 28px;
+  color: #6c5ce7;
+  margin-bottom: 12px;
+}
+
+.upload-area h3 {
+  margin: 0;
+
+  font-size: 15px;
+  color: #34363e;
+}
+
+.upload-area p {
+  margin: 7px 0 4px;
+
+  font-size: 13px;
+  color: #747783;
+}
+
+.upload-area span {
+  font-size: 11px;
+  color: #9a9ca5;
+}
+
+
+/* ================= JOB DESCRIPTION ================= */
+
+.input-card textarea {
+  width: 100%;
+  height: 190px;
+
+  padding: 15px;
+
+  box-sizing: border-box;
+
+  resize: none;
+
+  border: 1px solid #e0e1e8;
+  border-radius: 12px;
+
+  outline: none;
+
+  font-family: inherit;
+  font-size: 13px;
+
+  color: #33353d;
+
+  background: #fafafd;
+}
+
+.input-card textarea:focus {
+  border-color: #7a68e8;
+  background: #ffffff;
+}
+
+.input-card textarea::placeholder {
+  color: #a1a3ad;
+}
+
+.character-count {
+  margin-top: 8px;
+
+  text-align: right;
+
+  font-size: 11px;
+  color: #999ba5;
+}
+
+
+/* ================= ANALYZE & COMPARE ================= */
+
+.analyze-compare {
+  margin-top: 22px;
+
+  padding: 23px 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #ffffff;
+
+  border: 1px solid #e8e8ef;
+  border-radius: 16px;
+
+  box-sizing: border-box;
+}
+
+.analyze-compare-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.compare-icon {
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: #f0edff;
+  color: #6c5ce7;
+
+  font-size: 18px;
+}
+
+.analyze-compare-content h2 {
+  margin: 0;
+
+  font-size: 17px;
+  color: #25272e;
+}
+
+.analyze-compare-content p {
+  margin: 5px 0 0;
+
+  max-width: 650px;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  color: #777a85;
+}
+
+.analyze-compare-btn {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 12px 20px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #6c5ce7;
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.analyze-compare-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+.analyze-compare-btn:active {
+  transform: translateY(0);
+}
+
+
+/* ================= RESULTS ================= */
+
+.analysis-results {
+  margin-top: 30px;
+}
+
+.results-heading {
+  margin-bottom: 17px;
+}
+
+.results-heading h2 {
+  margin: 0;
+
+  font-size: 20px;
+  color: #25272e;
+}
+
+.results-heading p {
+  margin: 5px 0 0;
+
+  font-size: 12px;
+  color: #858792;
+}
+
+
+/* ================= SCORE GRID ================= */
+
+.score-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 18px;
+}
+
+.score-card {
+  padding: 21px;
+
+  background: #ffffff;
+
+  border: 1px solid #e8e8ef;
+
+  border-radius: 15px;
+
+  box-sizing: border-box;
+}
+
+.score-card h3 {
+  margin: 0;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #5f626d;
+}
+
+.score-value {
+  margin-top: 13px;
+
+  font-size: 34px;
+  font-weight: 700;
+
+  color: #6c5ce7;
+}
+
+.score-value span {
+  margin-left: 3px;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  color: #9b9da7;
+}
+
+.score-card p {
+  margin: 6px 0 0;
+
+  font-size: 11px;
+
+  color: #999ba5;
+}
+
+
+/* ================= COMPARISON ================= */
+
+.comparison-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 18px;
+
+  margin-top: 18px;
+}
+
+.comparison-card {
+  padding: 22px;
+
+  background: #ffffff;
+
+  border: 1px solid #e8e8ef;
+
+  border-radius: 15px;
+
+  box-sizing: border-box;
+}
+
+.comparison-heading {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 12px;
+}
+
+.comparison-heading > svg {
+  margin-top: 2px;
+
+  font-size: 18px;
+
+  color: #6c5ce7;
+}
+
+.comparison-heading h3 {
+  margin: 0;
+
+  font-size: 15px;
+
+  color: #292b33;
+}
+
+.comparison-heading p {
+  margin: 5px 0 0;
+
+  font-size: 11px;
+  line-height: 1.5;
+
+  color: #888a94;
+}
+
+
+/* ================= EMPTY STATE ================= */
+
+.empty-analysis {
+  margin-top: 22px;
+
+  padding: 18px;
+
+  text-align: center;
+
+  border-radius: 10px;
+
+  background: #fafafd;
+}
+
+.empty-analysis p {
+  margin: 0;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  color: #656773;
+}
+
+.empty-analysis span {
+  display: block;
+
+  margin-top: 5px;
+
+  font-size: 11px;
+
+  color: #999ba5;
+}
+
+
+/* ================= SKILLS ================= */
+
+.skills-list {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 20px;
+}
+
+.skills-list span {
+  padding: 7px 11px;
+
+  border-radius: 7px;
+
+  background: #f0edff;
+
+  color: #6253c9;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+  .input-grid,
+  .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .score-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .analyze-compare {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 18px;
+  }
+
+  .analyze-compare-btn {
+    width: 100%;
+
+    justify-content: center;
+  }
+}
