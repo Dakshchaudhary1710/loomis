@@ -1,5 +1,5 @@
-import SidebarMain from "../main-page/SidebarMain";
-import HeaderMain from "../main-page/HeaderMain"
+import SidebarMain from "../main-page/main-page-items/SidebarMain";
+import HeaderMain from "../main-page/main-page-items/HeaderMain"
 import {  Routes ,Route  } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import "./main.css";

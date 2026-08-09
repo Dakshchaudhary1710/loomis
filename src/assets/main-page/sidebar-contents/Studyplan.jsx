@@ -1,6 +1,6 @@
 import "./studyPlan.css";
-import AIMentor from "./AIMentor/AIMentor";
-import LearningRoadmap from "./LearningRoadmap/LearningRoadmap";
+import AIMentor from "./StudyPlan-contents/AIMentor/AIMentor";
+import LearningRoadmap from "./StudyPlan-contents/AIMentor/LearningRoadmap/LearningRoadmap";
 
 export default function StudyPlan() {
   return (
@@ -27,9 +27,7 @@ export default function StudyPlan() {
         <LearningRoadmap />
 
         {/* Upcoming Schedule */}
-        <div className="study-card">
-          <h2>Upcoming Schedule</h2>
-        </div>
+        
 
       </div>
 

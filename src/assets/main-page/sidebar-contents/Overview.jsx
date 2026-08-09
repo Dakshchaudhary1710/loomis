@@ -9,13 +9,13 @@ import {
 } from "react-icons/fa";
 
 import StatsCard from "./StatsCard/StatsCard";
-import InterviewGauge from "./InterviewGauge/InterviewGauge";
-import TopicMastery from "./TopicMastery/TopicMastery";
-import UpcomingPlan from "./UpcomingPlan/UpcomingPlan";
-import WeeklyHeatmap from "./WeeklyHeatmap/WeeklyHeatmap";
-import Achievement from "./Achievement/Achievement";
-import DailyTip from "./DailyTip/DailyTip";
-import NextInterview from "./NextInterview/NextInterview";
+import InterviewGauge from "./overview-contents/InterviewGauge/InterviewGauge";
+import TopicMastery from "./overview-contents/InterviewGauge/TopicMastery/TopicMastery";
+import UpcomingPlan from "./overview-contents/InterviewGauge/UpcomingPlan/UpcomingPlan";
+import WeeklyHeatmap from "./overview-contents/InterviewGauge/WeeklyHeatmap/WeeklyHeatmap";
+import Achievement from "./overview-contents/InterviewGauge/Achievement/Achievement";
+import DailyTip from "./overview-contents/InterviewGauge/DailyTip/DailyTip";
+import NextInterview from "./overview-contents/InterviewGauge/NextInterview/NextInterview";
 
 export default function Overview() {
   const dashboard = {

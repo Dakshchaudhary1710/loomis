@@ -1,5 +1,5 @@
 import "./aicoach.css";
-import AICoachTools from "./AiCoachFeatures/AICoachTools";
+import AICoachTools from "./AiCoach-contents/AiCoachFeatures/AICoachTools";
 
 export default function Aicoach() {
   return (
