@@ -17,6 +17,20 @@ import Achievement from "./overview-contents/InterviewGauge/Achievement/Achievem
 import DailyTip from "./overview-contents/InterviewGauge/DailyTip/DailyTip";
 import NextInterview from "./overview-contents/InterviewGauge/NextInterview/NextInterview";
 
+/**
+ * Small inline wrapper — just draws the white card + title around
+ * whatever widget is passed in. Lives here instead of its own file
+ * so everything stays in these two files (Overview.jsx / overview.css).
+ */
+function OverviewCard({ title, children }) {
+  return (
+    <div className="overview-card">
+      <h3 className="overview-card__title">{title}</h3>
+      <div className="overview-card__body">{children}</div>
+    </div>
+  );
+}
+
 export default function Overview() {
   const dashboard = {
     practiceStreak: 7,
@@ -79,7 +93,7 @@ export default function Overview() {
   return (
     <div className="overview">
 
-        {/* -------- Row 1 -------- */}
+
 
         <div className="stats-row">
 
@@ -130,27 +144,41 @@ export default function Overview() {
 
         </div>
 
-        {/* -------- Row 2 -------- */}
+
 
         <div className="middle-row">
-            <InterviewGauge />
-            <TopicMastery />
-            <UpcomingPlan />
+            <OverviewCard title="Interview Readiness Gauge">
+                <InterviewGauge />
+            </OverviewCard>
+
+            <OverviewCard title="Topic Mastery">
+                <TopicMastery />
+            </OverviewCard>
+
+            <OverviewCard title="Upcoming Plan">
+                <UpcomingPlan />
+            </OverviewCard>
         </div>
 
-        {/* -------- Row 3 -------- */}
+
 
         <div className="bottom-row">
-            <WeeklyHeatmap />
-            <Achievement />
-            <DailyTip />
+            <OverviewCard title="Weekly Performance">
+                <WeeklyHeatmap />
+            </OverviewCard>
+
+            <OverviewCard title="Achievement">
+                <Achievement />
+            </OverviewCard>
+
+            <OverviewCard title="Daily Tip">
+                <DailyTip />
+            </OverviewCard>
         </div>
 
-        {/* -------- Row 4 -------- */}
 
-        <div className="last-row">
-            <NextInterview />
-        </div>
+
+       
 
     </div>
 );

@@ -1,38 +1,72 @@
-.overview{
-    display:flex;
-    flex-direction:column;
-    gap:24px;
-
-    width:100%;
-    box-sizing:border-box;
+.overview {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-/* ---------- First Row ---------- */
+/* ---------- Row 1: stat tiles ---------- */
 
-.stats-row{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:20px;
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
 }
 
-/* ---------- Second Row ---------- */
+/* ---------- Row 2 & 3: widget cards ---------- */
 
-.middle-row{
-    display:grid;
-    grid-template-columns:1.5fr 1fr 1fr;
-    gap:20px;
+.middle-row,
+.bottom-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
-/* ---------- Third Row ---------- */
+/* ---------- Row 4: full width ---------- */
 
-.bottom-row{
-    display:grid;
-    grid-template-columns:1.5fr 1fr 1fr;
-    gap:20px;
+.last-row {
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
-/* ---------- Fourth Row ---------- */
+/* ---------- Card wrapper (title + white card) ---------- */
 
-.last-row{
-    width:100%;
+.overview-card {
+  background: #FFFFFF;
+  border: 1px solid #E7E7EE;
+  border-radius: 16px;
+  padding: 22px 24px;
+}
+
+.overview-card__title {
+  font-size: 19px;
+  font-weight: 700;
+  color: #1A1A24;
+  margin: 0 0 16px;
+}
+
+.overview-card__body {
+  min-height: 0;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1200px) {
+  .stats-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .middle-row,
+  .bottom-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .middle-row,
+  .bottom-row {
+    grid-template-columns: 1fr;
+  }
 }

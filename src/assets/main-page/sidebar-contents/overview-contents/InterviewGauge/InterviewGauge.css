@@ -1,30 +1,76 @@
-.card{
-    background:white;
-    border-radius:20px;
-    border:1px solid #e8e8e8;
-    box-shadow:0 10px 25px rgba(0,0,0,.05);
+.readiness-gauge {
+  --text: #1A1A24;
+  --text-muted: #7B7B8A;
+  --border: #E7E7EE;
 
-    box-sizing:border-box;
-    height:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  padding: 8px 0 4px;
 }
 
-.card h2{
-    margin:0;
-    font-size:12px;
-    color:#1f2937;
+.readiness-gauge__svg {
+  width: 220px;
+  max-width: 100%;
 }
 
-.placeholder{
+.readiness-gauge__score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -18px;
+}
 
-    height:220px;
+.readiness-gauge__number {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text);
+}
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+.readiness-gauge__label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
 
-    background:#f5f5f5;
+.readiness-gauge__factors {
+  width: 100%;
+  max-width: 280px;
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
 
-    border-radius:15px;
+.readiness-gauge__factor-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12.5px;
+  margin-bottom: 6px;
+}
 
-    color:#888;
+.readiness-gauge__factor-top span:first-child {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.readiness-gauge__factor-top span:last-child {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.readiness-gauge__bar {
+  height: 6px;
+  background: #EFEBFA;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.readiness-gauge__bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6E56E8, #9B8CFB);
+  border-radius: 999px;
+  transition: width 0.4s ease;
 }
