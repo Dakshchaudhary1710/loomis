@@ -14,23 +14,41 @@ import { NavLink } from "react-router-dom";
 export default function Sidebar() {
   return (
     <div className="sidebar">
-
       {/* Logo / Heading */}
-      <div className="sidebar-logo">
-        <div className="logo-icon">
-          🤖
-        </div>
+      <div className="title-mainpage">
+        <div className="sidebar-logo">
+          <div className="logo-icon">
+            {/* Minimal SVG Logo Icon for Loomis */}
+            <svg
+              width="70"
+              height="60"
+              viewBox="0 0 100 100"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="50" cy="50" r="46" fill="#1E1B4B" />
+              <path
+                d="M 35 28 V 55 A 8 8 0 0 0 43 63 H 47 A 8 8 0 0 0 55 55 V 45 A 8 8 0 0 1 63 37 H 65 A 8 8 0 0 1 73 45 V 68"
+                stroke="#A78BFA"
+                strokeWidth="8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <polygon points="73,54 63,68 83,68" fill="#38BDF8" />
+            </svg>
+          </div>
 
-        <div>
-          <h2>AI Interview Coach</h2>
-          <p>Practice. Improve. Succeed.</p>
+          <div className="title-mainpage-name">
+            <h2>
+              Loomis<span className="brand-accent"></span>
+            </h2>
+            <p style={{color:"green"}} className="sidebar-slogan" >Practice. Improve. Succeed.</p>
+          </div>
         </div>
       </div>
 
-
       {/* Sidebar Menu */}
       <div className="sidebar-menu">
-
         {/* Overview */}
         <NavLink
           to="/main/overview"
@@ -41,7 +59,6 @@ export default function Sidebar() {
           <HiHome />
           <span>Overview</span>
         </NavLink>
-
 
         {/* AI Coach */}
         <NavLink
@@ -54,7 +71,6 @@ export default function Sidebar() {
           <span>AI Coach</span>
         </NavLink>
 
-
         {/* Study Plan */}
         <NavLink
           to="/main/studyplan"
@@ -65,7 +81,6 @@ export default function Sidebar() {
           <HiAcademicCap />
           <span>Study Plan</span>
         </NavLink>
-
 
         {/* Resume Analysis */}
         <NavLink
@@ -78,7 +93,6 @@ export default function Sidebar() {
           <span>Resume Analysis</span>
         </NavLink>
 
-
         {/* Question Bank */}
         <NavLink
           to="/main/questionbank"
@@ -89,27 +103,14 @@ export default function Sidebar() {
           <HiMicrophone />
           <span>Question Bank</span>
         </NavLink>
-
       </div>
-
 
       {/* Quote Card */}
       <div className="quote-card">
-
         <FaQuoteLeft />
-
-        <h3>
-          Every interview is a
-          step closer to your
-          dream job.
-        </h3>
-
-        <p>
-          Keep going!
-        </p>
-
+        <h3>Every interview is a step closer to your dream job.</h3>
+        <p>Keep going!</p>
       </div>
-
     </div>
   );
 }

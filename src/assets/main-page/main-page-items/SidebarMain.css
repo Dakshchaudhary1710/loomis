@@ -9,7 +9,8 @@
   height: 100vh;
   background: linear-gradient(180deg, #17113b, #0d0b2a);
   color: white;
-  padding: 20px;
+  
+
 }
 
 .sidebar-logo {
@@ -62,6 +63,7 @@
 
   transition: 0.3s;
   font-size: 16px;
+  margin-top: 12px;
 }
 
 .menu-item svg {
@@ -121,4 +123,24 @@
   flex: 1;
   padding: 30px;
 
+}
+
+.title-mainpage{
+  height: 90px;
+background-color: white;
+
+border-color: gray;
+border-bottom: 5px;
+}
+
+.title-mainpage-name{
+  margin-top: 15px;
+  color: #6644c3;
+  margin-left: 20px;
+}
+.logo-icon{
+  
+}
+.sidebar-slogan{
+  color: green;
 }

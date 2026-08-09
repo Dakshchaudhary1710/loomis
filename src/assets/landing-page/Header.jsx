@@ -31,8 +31,26 @@ const[isLogin,setIsLogin]=useState(true);
     <>
         <div className="full-head">
 <div className="left-part">
-  <div className="left-title-icon"></div>
-  <div className="left-title"> Ai Interview Coach</div>
+  <div className="left-title-icon">
+    <svg
+              width="70"
+              height="60"
+              viewBox="0 0 100 100"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="50" cy="50" r="46" fill="#1E1B4B" />
+              <path
+                d="M 35 28 V 55 A 8 8 0 0 0 43 63 H 47 A 8 8 0 0 0 55 55 V 45 A 8 8 0 0 1 63 37 H 65 A 8 8 0 0 1 73 45 V 68"
+                stroke="#A78BFA"
+                strokeWidth="8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <polygon points="73,54 63,68 83,68" fill="#38BDF8" />
+            </svg>
+  </div>
+  <div className="left-title"> Loomis</div>
 </div>
 <div className="middle-part">
 {landpageTop.map((item)=>(
