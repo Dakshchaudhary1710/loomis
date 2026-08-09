@@ -1,6 +1,7 @@
 import "./aicoach.css";
 import AICoachTools from "./AiCoach-contents/AiCoachFeatures/AICoachTools";
-import AIchatBot from "./AiCoach-contents/AiCoachFeatures/aichat/AIchatBot"
+import AIchatBot from "./AiCoach-contents/AiCoachFeatures/aichat/AIchatBot";
+import HistoryPanel from "./AiCoach-contents/AiCoachFeatures/HistoryPanel/HistoryPanel";
 
 export default function Aicoach() {
   return (
@@ -8,7 +9,7 @@ export default function Aicoach() {
 
       {/* Left Section */}
       <div className="historySection">
-        <h2>History</h2>
+       <HistoryPanel />
       </div>
 
       {/* Center Section */}

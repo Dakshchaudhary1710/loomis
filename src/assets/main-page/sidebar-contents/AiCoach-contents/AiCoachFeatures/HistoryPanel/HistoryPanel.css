@@ -1,0 +1,207 @@
+/* History Panel — matches AICoachChat.css tokens */
+
+.history-panel {
+  --accent: #6E56E8;
+  --accent-light: #EFEBFF;
+  --bg: #FFFFFF;
+  --border: #E7E7EE;
+  --text: #1A1A24;
+  --text-muted: #7B7B8A;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 560px;
+  background: var(--bg);
+  border-right: 1px solid var(--border);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text);
+}
+
+/* ---------- Header ---------- */
+
+.history-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 18px 12px;
+}
+
+.history-panel__title {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.history-panel__new-btn {
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.history-panel__new-btn:hover {
+  opacity: 0.9;
+}
+
+/* ---------- Search ---------- */
+
+.history-panel__search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 16px 12px;
+  padding: 8px 12px;
+  background: #F7F7FA;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.history-panel__search-icon {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.history-panel__search input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.history-panel__search input::placeholder {
+  color: var(--text-muted);
+}
+
+/* ---------- List ---------- */
+
+.history-panel__list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 10px 16px;
+}
+
+.history-panel__group {
+  margin-bottom: 14px;
+}
+
+.history-panel__group-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  padding: 6px 8px 6px;
+}
+
+.history-panel__empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+}
+
+.history-panel__empty p {
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 4px;
+  font-size: 14px;
+}
+
+.history-panel__empty span {
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+/* ---------- Item ---------- */
+
+.history-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.12s ease;
+}
+
+.history-item:hover {
+  background: #F7F7FA;
+}
+
+.history-item:hover .history-item__delete {
+  opacity: 1;
+}
+
+.history-item--active {
+  background: var(--accent-light);
+}
+
+.history-item--active .history-item__title {
+  color: var(--accent);
+}
+
+.history-item__icon {
+  font-size: 15px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.history-item__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.history-item__title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.history-item__preview {
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 2px;
+}
+
+.history-item__delete {
+  opacity: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  transition: opacity 0.12s ease, color 0.12s ease, background 0.12s ease;
+}
+
+.history-item__delete:hover {
+  color: #E5484D;
+  background: #FDEBEC;
+}
+
+/* ---------- Scrollbar ---------- */
+
+.history-panel__list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.history-panel__list::-webkit-scrollbar-thumb {
+  background: #D8D8E4;
+  border-radius: 3px;
+}
