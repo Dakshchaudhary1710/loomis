@@ -7,6 +7,7 @@ import {
   HiMicrophone,
   HiDocumentText,
 } from "react-icons/hi";
+import { HiBookOpen } from "react-icons/hi";
 
 import { FaQuoteLeft } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
@@ -100,7 +101,7 @@ export default function Sidebar() {
             `menu-item ${isActive ? "active" : ""}`
           }
         >
-          <HiMicrophone />
+<HiBookOpen />
           <span>Question Bank</span>
         </NavLink>
       </div>

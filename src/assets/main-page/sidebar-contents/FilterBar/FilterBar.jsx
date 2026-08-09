@@ -1,11 +1,11 @@
-import "./FilterBar.css";
+
 
 import { FaSearch } from "react-icons/fa";
 import { FaRotateLeft } from "react-icons/fa6";
 
 import { useState } from "react";
 
-import FilterSelect from "./FilterSelect/FilterSelect";
+
 
 export default function FilterBar() {
   const [search, setSearch] = useState("");
