@@ -1,5 +1,6 @@
 import "./body.css"
 import { Link } from "react-router-dom"
+
 export default function Body(){
   return(
     <div className="second-part">
@@ -18,6 +19,50 @@ export default function Body(){
   <button className="middle-button">Start</button>
 </Link>
       </div>
+
+      {/* -------- Right side visual -------- */}
+      <div className="landing-part-right-visual">
+
+        <div className="hero-card">
+          <div className="hero-card-header">
+            <span className="hero-live-dot"></span>
+            Live Mock Interview
+          </div>
+
+          <div className="hero-chat-bubble hero-chat-bubble--ai">
+            <div className="hero-chat-label">AI Coach</div>
+            <p>Tell me about a time you solved a difficult technical problem.</p>
+          </div>
+
+          <div className="hero-chat-bubble hero-chat-bubble--user">
+            <p>Sure! In my last project, I optimized a slow database query by adding the right indexes...</p>
+          </div>
+
+          <div className="hero-typing">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <div className="hero-float-card hero-float-card--top">
+          <div className="hero-float-icon hero-float-icon--purple">🎯</div>
+          <div>
+            <div className="hero-float-value">92%</div>
+            <div className="hero-float-label">Readiness Score</div>
+          </div>
+        </div>
+
+        <div className="hero-float-card hero-float-card--bottom">
+          <div className="hero-float-icon hero-float-icon--orange">🔥</div>
+          <div>
+            <div className="hero-float-value">7-Day</div>
+            <div className="hero-float-label">Practice Streak</div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
   )
 }

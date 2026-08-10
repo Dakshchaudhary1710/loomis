@@ -6,7 +6,6 @@ import {
   FaComments,
   FaChartColumn,
   FaBookOpen,
-  FaMicrophoneLines,
 } from "react-icons/fa6";
 
 const lastBlockData = [
@@ -54,15 +53,6 @@ const lastBlockData = [
     title: "Learning Roadmap",
     description:
       "Get a personalized learning plan to improve your weak areas and grow faster.",
-  },
-  {
-    id: 6,
-    icon: <FaMicrophoneLines />,
-    bg: "#F3EEFF",
-    color: "#6C3CF0",
-    title: "Voice Interviews",
-    description:
-      "Practice real-time voice interviews with AI for a real interview experience.",
   },
 ];
 

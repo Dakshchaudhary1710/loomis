@@ -6,6 +6,7 @@ import {
   HiAcademicCap,
   HiMicrophone,
   HiDocumentText,
+  HiCog,
 } from "react-icons/hi";
 import { HiBookOpen } from "react-icons/hi";
 
@@ -43,7 +44,9 @@ export default function Sidebar() {
             <h2>
               Loomis<span className="brand-accent"></span>
             </h2>
-            <p style={{color:"green"}} className="sidebar-slogan" >Practice. Improve. Succeed.</p>
+            <p style={{ color: "green" }} className="sidebar-slogan">
+              Practice. Improve. Succeed.
+            </p>
           </div>
         </div>
       </div>
@@ -101,8 +104,19 @@ export default function Sidebar() {
             `menu-item ${isActive ? "active" : ""}`
           }
         >
-<HiBookOpen />
+          <HiBookOpen />
           <span>Question Bank</span>
+        </NavLink>
+
+        {/* Settings */}
+        <NavLink
+          to="/main/settings"
+          className={({ isActive }) =>
+            `menu-item ${isActive ? "active" : ""}`
+          }
+        >
+          <HiCog />
+          <span>Settings</span>
         </NavLink>
       </div>
 

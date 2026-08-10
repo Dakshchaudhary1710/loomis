@@ -8,6 +8,15 @@
     #f2ebff 70%,
     #ede4ff 100%
   );
+
+  /* added: lay left text + right visual side by side */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 40px;
+  position: relative;
+  overflow: visible;
 }
 .landing-part-middle-right{
   width: 45%;
@@ -56,4 +65,161 @@ background-color: rgb(84, 84, 181);
 border: none;
 border-radius: 16px;
 color: white;
+}
+
+/* ================= Right side hero visual ================= */
+
+.landing-part-right-visual {
+  width: 42%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-card {
+  width: 320px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 24px 60px rgba(108, 60, 240, 0.18);
+  position: relative;
+  z-index: 2;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.hero-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #6644c3;
+  margin-bottom: 16px;
+}
+
+.hero-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22C55E;
+  display: inline-block;
+  animation: hero-pulse 1.6s infinite ease-in-out;
+}
+
+@keyframes hero-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.hero-chat-bubble {
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.hero-chat-bubble p {
+  margin: 0;
+}
+
+.hero-chat-bubble--ai {
+  background: #F3EEFF;
+  color: #1A1A24;
+  border-bottom-left-radius: 4px;
+}
+
+.hero-chat-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #6C3CF0;
+  margin-bottom: 4px;
+}
+
+.hero-chat-bubble--user {
+  background: rgb(148, 142, 241);
+  color: #ffffff;
+  border-bottom-right-radius: 4px;
+  margin-left: 30px;
+}
+
+.hero-typing {
+  display: flex;
+  gap: 4px;
+  padding: 4px 2px 0;
+}
+
+.hero-typing span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #B9AEEF;
+  animation: hero-bounce 1.2s infinite ease-in-out;
+}
+
+.hero-typing span:nth-child(2) { animation-delay: 0.15s; }
+.hero-typing span:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes hero-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+
+/* Floating stat cards */
+
+.hero-float-card {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 12px 16px;
+  box-shadow: 0 12px 30px rgba(20, 10, 60, 0.12);
+  z-index: 3;
+}
+
+.hero-float-card--top {
+  top: 10px;
+  right: 10px;
+}
+
+.hero-float-card--bottom {
+  bottom: 20px;
+  left: 0;
+}
+
+.hero-float-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.hero-float-icon--purple {
+  background: #EEE9FF;
+}
+
+.hero-float-icon--orange {
+  background: #FFF3E7;
+}
+
+.hero-float-value {
+  font-size: 15px;
+  font-weight: 800;
+  color: #1A1A24;
+  line-height: 1.2;
+}
+
+.hero-float-label {
+  font-size: 11px;
+  color: #7B7B8A;
+  white-space: nowrap;
 }

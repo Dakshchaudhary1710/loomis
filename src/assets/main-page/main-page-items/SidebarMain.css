@@ -9,8 +9,6 @@
   height: 100vh;
   background: linear-gradient(180deg, #17113b, #0d0b2a);
   color: white;
-  
-
 }
 
 .sidebar-logo {
@@ -57,7 +55,7 @@
   text-decoration: none;
   color: #d6d7e5;
 
-  padding: 14px 18px;    
+  padding: 14px 18px;
 
   border-radius: 12px;
 
@@ -79,40 +77,42 @@
   background: linear-gradient(90deg, #6c4df6, #4b2fe3);
   color: white;
 }
-.quote-card{
-    margin-top: 60px;
-    padding: 25px 20px;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.05);
+
+.quote-card {
+  margin-top: 60px;
+  padding: 25px 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
 }
 
-.quote-icon{
-    font-size: 38px;
-    color: #8b5cf6;
-    margin-bottom: 15px;
+.quote-icon {
+  font-size: 38px;
+  color: #8b5cf6;
+  margin-bottom: 15px;
 }
 
-.quote-text{
-    color: white;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 1.5;
+.quote-text {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
 }
 
-.quote-subtext{
-    display: block;
-    margin-top: 18px;
-    color: #cfcfe8;
-    font-size: 16px;
+.quote-subtext {
+  display: block;
+  margin-top: 18px;
+  color: #cfcfe8;
+  font-size: 16px;
 }
 
-.quote-line{
-    width: 45px;
-    height: 4px;
-    background: #8b5cf6;
-    border-radius: 10px;
-    margin-top: 18px;
+.quote-line {
+  width: 45px;
+  height: 4px;
+  background: #8b5cf6;
+  border-radius: 10px;
+  margin-top: 18px;
 }
+
 .main-page {
   display: flex;
   width: 100%;
@@ -122,25 +122,25 @@
 .main-content {
   flex: 1;
   padding: 30px;
-
 }
 
-.title-mainpage{
+.title-mainpage {
   height: 90px;
-background-color: white;
+  background-color: white;
 
-border-color: gray;
-border-bottom: 5px;
+  border-color: gray;
+  border-bottom: 5px;
 }
 
-.title-mainpage-name{
+.title-mainpage-name {
   margin-top: 15px;
   color: #6644c3;
   margin-left: 20px;
 }
-.logo-icon{
-  
+
+.logo-icon {
 }
-.sidebar-slogan{
+
+.sidebar-slogan {
   color: green;
 }
