@@ -59,11 +59,7 @@ const lastBlockData = [
 export default function Footer(){
   return(
 <div className="last-part">
-  <div className="last-top">
-
-    <div className="last-top-one">Everything You Need to Succeed</div>
-    <div className="last-top-two">Our Al coach helps you practice, improve, and ace your interviews.</div>
-     </div>
+  
  <div className="last-blocks">
         {lastBlockData.map((item) => (
           <div className="last-block" key={item.id}>
