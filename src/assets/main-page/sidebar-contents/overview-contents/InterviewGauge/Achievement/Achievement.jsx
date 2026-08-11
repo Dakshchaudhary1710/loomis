@@ -1,50 +1,58 @@
-import React from "react";
+import { FaCrown, FaMedal } from "react-icons/fa6";
 import "./Achievement.css";
 
 /**
- * Achievement
- * Shows the most recently unlocked badge plus a compact strip of others.
- * Replace `latest` / `others` with GET /api/achievements
+ * Recent Achievements
+ * Latest unlocked badges with XP earned. Replace `achievements` with
+ * GET /api/achievements?limit=2
  */
 
-const DEFAULT_LATEST = {
-  icon: "🔥",
-  title: "7-Day Streak",
-  description: "You've practiced every day this week. Keep the momentum going!",
-  unlockedAt: "Today",
-};
-
-const DEFAULT_OTHERS = [
-  { icon: "🎯", title: "First Mock Interview", unlocked: true },
-  { icon: "💯", title: "100 Questions Solved", unlocked: true },
-  { icon: "🧠", title: "System Design Pro", unlocked: true },
-  { icon: "🏆", title: "30-Day Streak", unlocked: false },
-  { icon: "⚡", title: "Speed Solver", unlocked: false },
+const DEFAULT_ACHIEVEMENTS = [
+  {
+    id: 1,
+    title: "Consistency King",
+    emoji: "🔥",
+    description: "7 days of consistent practice",
+    xp: 100,
+    icon: <FaCrown />,
+    color: "#8B5CF6",
+  },
+  {
+    id: 2,
+    title: "Mock Master",
+    emoji: "",
+    description: "Completed 5 mock interviews",
+    xp: 150,
+    icon: <FaMedal />,
+    color: "#3B82F6",
+  },
 ];
 
-export default function Achievement({ latest = DEFAULT_LATEST, others = DEFAULT_OTHERS }) {
+export default function Achievement({ achievements = DEFAULT_ACHIEVEMENTS }) {
   return (
     <div className="achievement">
-      <div className="achievement__hero">
-        <div className="achievement__icon">{latest.icon}</div>
-        <div>
-          <div className="achievement__title">{latest.title}</div>
-          <div className="achievement__desc">{latest.description}</div>
-          <div className="achievement__unlocked">Unlocked {latest.unlockedAt}</div>
-        </div>
-      </div>
+      <button className="achievement__view-all">View All</button>
 
-      <div className="achievement__strip">
-        {others.map((b) => (
+      {achievements.map((a) => (
+        <div key={a.id} className="achievement__row">
           <div
-            key={b.title}
-            className={`achievement__badge ${b.unlocked ? "" : "achievement__badge--locked"}`}
-            title={b.title}
+            className="achievement__icon"
+            style={{ background: `${a.color}1A`, color: a.color }}
           >
-            <span className="achievement__badge-icon">{b.unlocked ? b.icon : "🔒"}</span>
+            {a.icon}
           </div>
-        ))}
-      </div>
+
+          <div className="achievement__body">
+            <div className="achievement__title-row">
+              <span className="achievement__title">
+                {a.title} {a.emoji}
+              </span>
+              <span className="achievement__xp">+{a.xp} XP</span>
+            </div>
+            <div className="achievement__desc">{a.description}</div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }

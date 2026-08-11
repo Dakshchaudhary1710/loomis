@@ -17,11 +17,6 @@ import Achievement from "./overview-contents/InterviewGauge/Achievement/Achievem
 import DailyTip from "./overview-contents/InterviewGauge/DailyTip/DailyTip";
 import NextInterview from "./overview-contents/InterviewGauge/NextInterview/NextInterview";
 
-/**
- * Small inline wrapper — just draws the white card + title around
- * whatever widget is passed in. Lives here instead of its own file
- * so everything stays in these two files (Overview.jsx / overview.css).
- */
 function OverviewCard({ title, children }) {
   return (
     <div className="overview-card">
@@ -40,60 +35,33 @@ export default function Overview() {
     confidence: 78,
 
     streakGraph: [
-      { value: 1 },
-      { value: 2 },
-      { value: 3 },
-      { value: 4 },
-      { value: 5 },
-      { value: 6 },
-      { value: 7 },
+      { value: 1 }, { value: 2 }, { value: 3 }, { value: 4 },
+      { value: 5 }, { value: 6 }, { value: 7 },
     ],
 
     performanceGraph: [
-      { value: 60 },
-      { value: 68 },
-      { value: 72 },
-      { value: 81 },
-      { value: 85 },
-      { value: 90 },
-      { value: 92 },
+      { value: 60 }, { value: 68 }, { value: 72 }, { value: 81 },
+      { value: 85 }, { value: 90 }, { value: 92 },
     ],
 
     timeGraph: [
-      { value: 2 },
-      { value: 4 },
-      { value: 5 },
-      { value: 8 },
-      { value: 10 },
-      { value: 12 },
-      { value: 15 },
+      { value: 2 }, { value: 4 }, { value: 5 }, { value: 8 },
+      { value: 10 }, { value: 12 }, { value: 15 },
     ],
 
     questionsGraph: [
-      { value: 20 },
-      { value: 40 },
-      { value: 55 },
-      { value: 70 },
-      { value: 90 },
-      { value: 110 },
-      { value: 132 },
+      { value: 20 }, { value: 40 }, { value: 55 }, { value: 70 },
+      { value: 90 }, { value: 110 }, { value: 132 },
     ],
 
     confidenceGraph: [
-      { value: 40 },
-      { value: 50 },
-      { value: 58 },
-      { value: 66 },
-      { value: 70 },
-      { value: 74 },
-      { value: 78 },
+      { value: 40 }, { value: 50 }, { value: 58 }, { value: 66 },
+      { value: 70 }, { value: 74 }, { value: 78 },
     ],
   };
 
   return (
     <div className="overview">
-
-
 
         <div className="stats-row">
 
@@ -104,6 +72,7 @@ export default function Overview() {
                 icon={<FaBullseye />}
                 color="#6C3CF5"
                 data={dashboard.streakGraph}
+                trend={{ direction: "up", label: "+1 this week" }}
             />
 
             <StatsCard
@@ -113,6 +82,7 @@ export default function Overview() {
                 icon={<FaChartLine />}
                 color="#22C55E"
                 data={dashboard.performanceGraph}
+                trend={{ direction: "up", label: "+4% this month" }}
             />
 
             <StatsCard
@@ -122,6 +92,7 @@ export default function Overview() {
                 icon={<FaClock />}
                 color="#F97316"
                 data={dashboard.timeGraph}
+                trend={{ direction: "up", label: "+3h this week" }}
             />
 
             <StatsCard
@@ -131,6 +102,7 @@ export default function Overview() {
                 icon={<FaStar />}
                 color="#3B82F6"
                 data={dashboard.questionsGraph}
+                trend={{ direction: "up", label: "+18 this week" }}
             />
 
             <StatsCard
@@ -140,11 +112,10 @@ export default function Overview() {
                 icon={<FaAward />}
                 color="#EC4899"
                 data={dashboard.confidenceGraph}
+                trend={{ direction: "up", label: "+6% this month" }}
             />
 
         </div>
-
-
 
         <div className="middle-row">
             <OverviewCard title="Interview Readiness Gauge">
@@ -160,8 +131,6 @@ export default function Overview() {
             </OverviewCard>
         </div>
 
-
-
         <div className="bottom-row">
             <OverviewCard title="Weekly Performance">
                 <WeeklyHeatmap />
@@ -175,10 +144,6 @@ export default function Overview() {
                 <DailyTip />
             </OverviewCard>
         </div>
-
-
-
-       
 
     </div>
 );

@@ -45,7 +45,7 @@ export default function Sidebar() {
               Loomis<span className="brand-accent"></span>
             </h2>
             <p style={{ color: "green" }} className="sidebar-slogan">
-              Practice. Improve. Succeed.
+              Learn. Practice. Build.
             </p>
           </div>
         </div>
@@ -123,8 +123,8 @@ export default function Sidebar() {
       {/* Quote Card */}
       <div className="quote-card">
         <FaQuoteLeft />
-        <h3>Every interview is a step closer to your dream job.</h3>
-        <p>Keep going!</p>
+        <h3>Learn with purpose. Practice with intent. Build your future..</h3>
+        <p></p>
       </div>
     </div>
   );

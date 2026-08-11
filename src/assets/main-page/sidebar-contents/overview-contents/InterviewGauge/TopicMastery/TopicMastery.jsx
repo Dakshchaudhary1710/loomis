@@ -1,48 +1,62 @@
-import React from "react";
+import { FaSitemap, FaLayerGroup, FaUserGroup, FaCode, FaDatabase } from "react-icons/fa6";
 import "./TopicMastery.css";
 
 /**
  * Topic Mastery
- * Progress bars per topic area, sorted strongest -> weakest.
- * Replace `topics` with GET /api/topic-mastery -> [{ topic, mastery }]
+ * Progress bars per topic, each with an icon badge + trend indicator.
+ * Replace `topics` with GET /api/topic-mastery
  */
 
 const DEFAULT_TOPICS = [
-  { topic: "System Design", mastery: 92, trend: "up" },
-  { topic: "Data Structures", mastery: 81, trend: "up" },
-  { topic: "Behavioral", mastery: 74, trend: "flat" },
-  { topic: "Algorithms", mastery: 65, trend: "down" },
-  { topic: "SQL & Databases", mastery: 48, trend: "up" },
+  { topic: "System Design", mastery: 92, trend: "up", icon: <FaSitemap />, color: "#22C55E" },
+  { topic: "Data Structures", mastery: 81, trend: "up", icon: <FaLayerGroup />, color: "#14B8A6" },
+  { topic: "Behavioral", mastery: 74, trend: "flat", icon: <FaUserGroup />, color: "#F59E0B" },
+  { topic: "Algorithms", mastery: 65, trend: "down", icon: <FaCode />, color: "#EC4899" },
+  { topic: "SQL & Databases", mastery: 48, trend: "up", icon: <FaDatabase />, color: "#3B82F6" },
 ];
 
-const TREND_ICON = { up: "▲", down: "▼", flat: "•" };
-const TREND_COLOR = { up: "#34C759", down: "#E5484D", flat: "#7B7B8A" };
+const TREND_META = {
+  up: { symbol: "▲", color: "#16A34A" },
+  down: { symbol: "▼", color: "#DC2626" },
+  flat: { symbol: "–", color: "#9291A3" },
+};
 
 export default function TopicMastery({ topics = DEFAULT_TOPICS }) {
   return (
     <div className="topic-mastery">
-      {topics.map((t) => (
-        <div key={t.topic} className="topic-mastery__row">
-          <div className="topic-mastery__top">
-            <span className="topic-mastery__name">{t.topic}</span>
-            <span className="topic-mastery__value">
-              {t.mastery}%
-              <span
-                className="topic-mastery__trend"
-                style={{ color: TREND_COLOR[t.trend] }}
-              >
-                {TREND_ICON[t.trend]}
-              </span>
-            </span>
-          </div>
-          <div className="topic-mastery__bar">
+      <button className="topic-mastery__view-all">View All</button>
+
+      {topics.map((t) => {
+        const trend = TREND_META[t.trend];
+        return (
+          <div key={t.topic} className="topic-mastery__row">
             <div
-              className="topic-mastery__bar-fill"
-              style={{ width: `${t.mastery}%`, background: masteryColor(t.mastery) }}
-            />
+              className="topic-mastery__icon"
+              style={{ background: `${t.color}1A`, color: t.color }}
+            >
+              {t.icon}
+            </div>
+
+            <div className="topic-mastery__main">
+              <div className="topic-mastery__top">
+                <span className="topic-mastery__name">{t.topic}</span>
+                <span className="topic-mastery__value">
+                  {t.mastery}%
+                  <span className="topic-mastery__trend" style={{ color: trend.color }}>
+                    {trend.symbol}
+                  </span>
+                </span>
+              </div>
+              <div className="topic-mastery__bar">
+                <div
+                  className="topic-mastery__bar-fill"
+                  style={{ width: `${t.mastery}%`, background: masteryColor(t.mastery) }}
+                />
+              </div>
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }

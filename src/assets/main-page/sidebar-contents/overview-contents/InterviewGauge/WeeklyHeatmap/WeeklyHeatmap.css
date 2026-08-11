@@ -1,75 +1,39 @@
-.weekly-perf {
+.weekly-performance {
   --text: #1A1A24;
-  --text-muted: #7B7B8A;
+  --text-muted: #9291A3;
 
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  padding: 6px 4px;
+  position: relative;
 }
 
-.weekly-perf__grid {
+/* Top-right range selector row */
+.weekly-performance__header {
   display: flex;
-  gap: 8px;
-  align-items: flex-start;
-}
-
-.weekly-perf__day-labels {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding-top: 2px;
-}
-
-.weekly-perf__day-labels span {
-  height: 16px;
-  width: 14px;
-  font-size: 10px;
-  color: var(--text-muted);
-  display: flex;
+  justify-content: flex-end;
   align-items: center;
-  justify-content: center;
+  margin-bottom: 12px;
 }
 
-.weekly-perf__weeks {
-  display: flex;
-  gap: 4px;
-  overflow-x: auto;
-  flex: 1;
+.weekly-performance__select {
+  border: 1px solid #E7E7EE;
+  border-radius: 8px;
+
+  padding: 6px 10px;
+
+  font-size: 12.5px;
+  font-weight: 500;
+
+  color: var(--text);
+  background: #FFFFFF;
+
+  cursor: pointer;
+  outline: none;
 }
 
-.weekly-perf__week {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.weekly-performance__select:hover {
+  border-color: #D9D4F7;
 }
 
-.weekly-perf__cell {
-  width: 16px;
-  height: 16px;
-  border-radius: 4px;
-  transition: transform 0.1s ease;
-}
-
-.weekly-perf__cell:hover {
-  transform: scale(1.15);
-}
-
-.weekly-perf__footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 16px;
-  font-size: 12px;
-  color: var(--text-muted);
-}
-
-.weekly-perf__legend {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.weekly-perf__legend-cell {
-  width: 11px;
-  height: 11px;
-  border-radius: 3px;
+.weekly-performance__select:focus {
+  border-color: #8B7CF6;
 }

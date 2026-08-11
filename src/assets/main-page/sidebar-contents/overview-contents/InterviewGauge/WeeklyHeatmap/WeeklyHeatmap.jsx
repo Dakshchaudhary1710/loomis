@@ -1,75 +1,134 @@
-import React from "react";
+import { useState } from "react";
+import {
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Cell,
+} from "recharts";
 import "./WeeklyHeatmap.css";
 
 /**
  * Weekly Performance
- * GitHub-style heatmap: rows = weeks, columns = days, intensity = practice
- * time / score that day. Replace `weeks` with GET /api/weekly-performance
- * -> [[{ date, value }, ...7 days], ...N weeks]
+ * Bar chart of daily practice completion (%).
+ * The current/future day (no data yet) renders as a dashed outline bar.
  */
 
-const DAY_LABELS = ["S", "M", "T", "W", "T", "F", "S"];
+const DEFAULT_DATA = [
+  { day: "Mon", value: 62 },
+  { day: "Tue", value: 78 },
+  { day: "Wed", value: 55 },
+  { day: "Thu", value: 88 },
+  { day: "Fri", value: 45 },
+  { day: "Sat", value: 70 },
+  { day: "Sun", value: 55, isFuture: true },
+];
 
-function generateMockWeeks(weekCount = 6) {
-  const weeks = [];
-  const today = new Date();
-  for (let w = weekCount - 1; w >= 0; w--) {
-    const week = [];
-    for (let d = 0; d < 7; d++) {
-      const date = new Date(today);
-      date.setDate(today.getDate() - (w * 7 + (6 - d)));
-      const value = Math.max(0, Math.round(Math.random() * 4 - (w === 0 && d > new Date().getDay() ? 4 : 0)));
-      week.push({ date: date.toISOString(), value });
-    }
-    weeks.push(week);
-  }
-  return weeks;
-}
+const RANGE_OPTIONS = ["This Week", "Last Week", "This Month"];
 
-const DEFAULT_WEEKS = generateMockWeeks();
-
-export default function WeeklyHeatmap({ weeks = DEFAULT_WEEKS }) {
-  const totalSessions = weeks.flat().reduce((sum, d) => sum + (d.value > 0 ? 1 : 0), 0);
+export default function WeeklyHeatmap({ data = DEFAULT_DATA }) {
+  const [range, setRange] = useState(RANGE_OPTIONS[0]);
 
   return (
-    <div className="weekly-perf">
-      <div className="weekly-perf__grid">
-        <div className="weekly-perf__day-labels">
-          {DAY_LABELS.map((d, i) => (
-            <span key={i}>{d}</span>
+    <div className="weekly-performance">
+      {/* Top-right filter */}
+      <div className="weekly-performance__header">
+        <select
+          className="weekly-performance__select"
+          aria-label="Select date range"
+          value={range}
+          onChange={(e) => setRange(e.target.value)}
+        >
+          {RANGE_OPTIONS.map((opt) => (
+            <option key={opt} value={opt}>
+              {opt}
+            </option>
           ))}
-        </div>
-        <div className="weekly-perf__weeks">
-          {weeks.map((week, wi) => (
-            <div key={wi} className="weekly-perf__week">
-              {week.map((day, di) => (
-                <div
-                  key={di}
-                  className="weekly-perf__cell"
-                  style={{ background: intensityColor(day.value) }}
-                  title={`${new Date(day.date).toLocaleDateString()} — ${day.value} session${day.value === 1 ? "" : "s"}`}
-                />
-              ))}
-            </div>
-          ))}
-        </div>
+        </select>
       </div>
 
-      <div className="weekly-perf__footer">
-        <span>{totalSessions} active days this period</span>
-        <div className="weekly-perf__legend">
-          <span>Less</span>
-          {[0, 1, 2, 3, 4].map((v) => (
-            <div key={v} className="weekly-perf__legend-cell" style={{ background: intensityColor(v) }} />
-          ))}
-          <span>More</span>
-        </div>
-      </div>
+      <ResponsiveContainer width="100%" height={220}>
+        <BarChart
+          data={data}
+          margin={{ top: 4, right: 4, bottom: 0, left: -18 }}
+        >
+          <defs>
+            <linearGradient
+              id="weeklyBarGradient"
+              x1="0"
+              y1="0"
+              x2="0"
+              y2="1"
+            >
+              <stop offset="0%" stopColor="#8B7CF6" />
+              <stop offset="100%" stopColor="#5B4CDB" />
+            </linearGradient>
+          </defs>
+
+          <CartesianGrid
+            vertical={false}
+            stroke="#F0F0F5"
+          />
+
+          <YAxis
+            domain={[0, 100]}
+            ticks={[0, 25, 50, 75, 100]}
+            tickFormatter={(v) => `${v}%`}
+            axisLine={false}
+            tickLine={false}
+            tick={{
+              fontSize: 11,
+              fill: "#9291A3",
+            }}
+            width={44}
+          />
+
+          <XAxis
+            dataKey="day"
+            axisLine={false}
+            tickLine={false}
+            tick={{
+              fontSize: 12,
+              fill: "#55536B",
+              fontWeight: 600,
+            }}
+          />
+
+          <Bar
+            dataKey="value"
+            radius={[6, 6, 0, 0]}
+            maxBarSize={28}
+          >
+            {data.map((entry, i) => (
+              <Cell
+                key={i}
+                fill={
+                  entry.isFuture
+                    ? "transparent"
+                    : "url(#weeklyBarGradient)"
+                }
+                stroke={
+                  entry.isFuture
+                    ? "#C7C0F5"
+                    : "none"
+                }
+                strokeDasharray={
+                  entry.isFuture
+                    ? "4 3"
+                    : "0"
+                }
+                strokeWidth={
+                  entry.isFuture
+                    ? 1.5
+                    : 0
+                }
+              />
+            ))}
+          </Bar>
+        </BarChart>
+      </ResponsiveContainer>
     </div>
   );
-}
-
-function intensityColor(value) {
-  const scale = ["#EEEEF3", "#D9D2FA", "#B6A6F5", "#8D75EF", "#6E56E8"];
-  return scale[Math.min(value, scale.length - 1)];
 }
