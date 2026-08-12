@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./header.css";
 import Modal from "./login-page/Modal";
+import { FaCrown } from "react-icons/fa";
+
 
 const landpageTop=[
   {
@@ -65,7 +67,8 @@ const[isLogin,setIsLogin]=useState(true);
     setIsLogin(true);
   }}>
       login</div>
-    <button className="right-end-2">Get Started Free</button>
+    <button className="right-end-2" ><FaCrown style={{ color: "#FFD700", fontSize: "24px",marginRight:"8px" }} />
+    Upgrade To Pro</button>
   </div>
 </div>
     </div>

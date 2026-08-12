@@ -66,12 +66,15 @@ color: rgba(116, 78, 169, 0.906);
 
 .right-end-2{
   height: 40px;
-  width: 130px;
+  width: 170px;
   font-size: 15px;
  background-color: rgb(148, 142, 241);
  border-radius: 10px;
  border: 1px;
  border-color:  rgb(148, 142, 241);
+ align-items: center;
+display: flex;
+ justify-content: center;
 }
 .modal select {
   width: 100%;

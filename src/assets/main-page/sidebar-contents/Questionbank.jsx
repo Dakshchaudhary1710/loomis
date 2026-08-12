@@ -195,9 +195,7 @@ export default function QuestionBank() {
           <h1 className="qb__title">Question Bank</h1>
           <p className="qb__subtitle">Practice interview questions by topic, company, or difficulty.</p>
         </div>
-        <button className="qb__add-btn">
-          <span>+</span> Add to Practice
-        </button>
+      
       </div>
 
       {/* ---------- Stat tiles ---------- */}

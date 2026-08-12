@@ -9,7 +9,7 @@ export default function StudyPlan() {
       {/* LEFT SIDE */}
       <div className="study-plan-main">
 
-        {/* Header */}
+        {/* Header — stays in place, does not scroll */}
         <div className="study-plan-header">
           <div>
             <h1>Study Plan</h1>
@@ -23,11 +23,16 @@ export default function StudyPlan() {
           </button>
         </div>
 
-        {/* Learning Roadmap */}
-        <LearningRoadmap />
+        {/* Scrollable content */}
+        <div className="study-plan-scroll">
 
-        {/* Upcoming Schedule */}
-        
+          {/* Learning Roadmap */}
+          <LearningRoadmap />
+
+          {/* Upcoming Schedule */}
+
+
+        </div>
 
       </div>
 
