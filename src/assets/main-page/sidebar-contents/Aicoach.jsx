@@ -1,5 +1,5 @@
 import "./aicoach.css";
-import AICoachTools from "./AiCoach-contents/AiCoachFeatures/AICoachTools";
+import AICoachTools from "./AiCoach-contents/AiCoachFeatures/AiCoachtools";
 import AIchatBot from "./AiCoach-contents/AiCoachFeatures/aichat/AIchatBot";
 import HistoryPanel from "./AiCoach-contents/AiCoachFeatures/HistoryPanel/HistoryPanel";
 

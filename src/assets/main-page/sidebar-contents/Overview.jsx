@@ -8,7 +8,7 @@ import {
   FaAward,
 } from "react-icons/fa";
 
-import StatsCard from "./StatsCard/StatsCard";
+import StatsCard from "./statscard/StatsCard";
 import InterviewGauge from "./overview-contents/InterviewGauge/InterviewGauge";
 import TopicMastery from "./overview-contents/InterviewGauge/TopicMastery/TopicMastery";
 import UpcomingPlan from "./overview-contents/InterviewGauge/UpcomingPlan/UpcomingPlan";
