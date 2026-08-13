@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import "./questionBank.css";
+import "./questionbank.css";
 
 /**
  * Question Bank
