@@ -12,9 +12,8 @@
 
 .topic-mastery__view-all {
   position: absolute;
-  top: -10;
+  top: -8px;
   right: 10px;
-  bottom: 280px;
 
   border: 1px solid #E7E7EE;
   background: #FFFFFF;
@@ -28,10 +27,6 @@
 
   cursor: pointer;
   transition: background 0.15s ease;
-}
-
-.topic-mastery__view-all:hover {
-  background: #F7F4FF;
 }
 
 .topic-mastery__view-all:hover {
