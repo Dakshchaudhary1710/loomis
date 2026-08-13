@@ -6,7 +6,7 @@ import {
   FaCode
 } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa6";
-import "./AICoachTools.css";
+import "./AiCoachTools.css";
 
 const tools = [
   {
