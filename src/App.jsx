@@ -5,7 +5,7 @@ import Aicoach from "./assets/main-page/sidebar-contents/Aicoach";
 import Studyplan from "./assets/main-page/sidebar-contents/Studyplan";
 
 import Questionbank from "./assets/main-page/sidebar-contents/Questionbank";
-import Setting from "./assets/main-page/sidebar-contents/Setting";
+import Settings from "./assets/main-page/sidebar-contents/Settings";
 
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ResumeAnalysis from "./assets/main-page/sidebar-contents/ResumeAnalysis";
@@ -22,7 +22,7 @@ export default function App() {
           <Route path="studyplan" element={<Studyplan />} />
           <Route path="resumeanalysis" element={<ResumeAnalysis />} />
           <Route path="questionbank" element={<Questionbank />} />
-          <Route path="setting" element={<Setting />} />
+          <Route path="settings" element={<Settings />} />
         </Route>
       </Routes>
     </BrowserRouter>

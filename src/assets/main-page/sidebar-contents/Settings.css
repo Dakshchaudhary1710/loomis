@@ -1,0 +1,522 @@
+.settings-page {
+  --text: #1A1A24;
+  --text-muted: #9291A3;
+  --text-soft: #64748b;
+  --border: #E7E7EE;
+  --border-hover: #D9D4F7;
+  --accent: #6C3CF5;
+  --accent-soft: #F7F4FF;
+
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text);
+  width: 100%;
+}
+
+
+/* HEADER */
+
+.settings-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.settings-header-icon {
+  width: 22px;
+  height: 22px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.settings-header h1 {
+  margin: 0;
+  font-size: 24px;
+  color: var(--text);
+}
+
+.settings-header p {
+  margin: 4px 0 0;
+  font-size: 13.5px;
+  color: var(--text-soft);
+}
+
+
+/* LAYOUT */
+
+.settings-layout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+
+/* NAV */
+
+.settings-nav {
+  width: 220px;
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.settings-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  border: none;
+  background: transparent;
+  border-radius: 10px;
+  padding: 10px 12px;
+
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-soft);
+  text-align: left;
+
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.settings-nav-item:hover {
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+.settings-nav-item.is-active {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.settings-nav-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+
+/* CONTENT CARD */
+
+.settings-content {
+  flex: 1;
+  min-width: 0;
+
+  background: white;
+  border: 1px solid #e6e8f0;
+  border-radius: 16px;
+  padding: 24px 28px;
+
+  box-shadow: 0 3px 15px rgba(30, 27, 75, 0.04);
+}
+
+.settings-content-title {
+  margin: 0 0 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.settings-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+
+/* FIELD ROW */
+
+.settings-field {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.settings-field-label p {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.settings-field-desc {
+  margin: 4px 0 0;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.settings-field-control {
+  flex-shrink: 0;
+}
+
+
+/* INPUTS */
+
+.settings-input,
+.settings-select {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  padding: 8px 12px;
+
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--text);
+  background: #FFFFFF;
+
+  min-width: 220px;
+  outline: none;
+  cursor: pointer;
+}
+
+.settings-input {
+  cursor: text;
+}
+
+.settings-input:hover,
+.settings-select:hover {
+  border-color: var(--border-hover);
+}
+
+.settings-input:focus,
+.settings-select:focus {
+  border-color: #8B7CF6;
+}
+
+
+/* AVATAR */
+
+.settings-avatar-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.settings-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 16px;
+  font-weight: 700;
+
+  flex-shrink: 0;
+}
+
+
+/* BUTTONS */
+
+.settings-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  border: 1px solid var(--border);
+  background: #FFFFFF;
+  border-radius: 8px;
+
+  padding: 8px 14px;
+
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text);
+
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.settings-btn-secondary:hover {
+  border-color: var(--border-hover);
+  background: var(--accent-soft);
+}
+
+.settings-btn-primary {
+  border: none;
+  border-radius: 9px;
+
+  padding: 10px 18px;
+
+  background: linear-gradient(90deg, #6738f5, #5425df);
+  color: white;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: box-shadow 0.15s ease;
+}
+
+.settings-btn-primary:hover {
+  box-shadow: 0 6px 16px rgba(103, 56, 245, 0.25);
+}
+
+.settings-btn-danger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  border: 1px solid #F0B4B4;
+  background: #FFFFFF;
+  border-radius: 8px;
+
+  padding: 8px 14px;
+
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #DC2626;
+
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.settings-btn-danger:hover {
+  background: #FEF2F2;
+}
+
+
+/* TOGGLE SWITCH */
+
+.settings-toggle-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  cursor: pointer;
+}
+
+.settings-toggle-label {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.settings-switch {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.settings-switch-input {
+  position: absolute;
+  opacity: 0;
+  width: 40px;
+  height: 22px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.settings-switch-track {
+  display: block;
+  width: 40px;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--border);
+  transition: background 0.15s ease;
+}
+
+.settings-switch.is-on .settings-switch-track {
+  background: var(--accent);
+}
+
+.settings-switch-thumb {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+  margin: 3px;
+  transition: transform 0.15s ease;
+}
+
+.settings-switch.is-on .settings-switch-thumb {
+  transform: translateX(18px);
+}
+
+
+/* CHIPS (focus topics) */
+
+.settings-chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 320px;
+  justify-content: flex-end;
+}
+
+.settings-chip {
+  border: 1px solid var(--border);
+  background: #FFFFFF;
+  border-radius: 999px;
+
+  padding: 6px 12px;
+
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-soft);
+
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.settings-chip.is-selected {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+
+/* SEGMENTED CONTROL (theme) */
+
+.settings-segmented {
+  display: inline-flex;
+  background: #F5F4FB;
+  border-radius: 8px;
+  padding: 3px;
+  gap: 2px;
+}
+
+.settings-segmented-btn {
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+
+  padding: 6px 14px;
+
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text-soft);
+
+  cursor: pointer;
+}
+
+.settings-segmented-btn.is-active {
+  background: #FFFFFF;
+  color: var(--text);
+  box-shadow: 0 1px 3px rgba(30, 27, 75, 0.1);
+}
+
+
+/* DANGER ZONE */
+
+.settings-danger-zone {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  border: 1px solid #F5DADA;
+  background: #FFFAFA;
+  border-radius: 12px;
+
+  padding: 14px 16px;
+}
+
+.settings-danger-title {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #B91C1C;
+}
+
+
+/* PLAN CARD (billing) */
+
+.settings-plan-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  border: 1px solid var(--border);
+  border-radius: 14px;
+
+  padding: 18px 20px;
+}
+
+.settings-plan-name {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+
+/* TRIGGER BUTTON */
+
+.settings-trigger-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  border: 1px solid #E7E7EE;
+  border-radius: 8px;
+  background: #FFFFFF;
+
+  padding: 6px 12px;
+
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #1A1A24;
+  text-decoration: none;
+
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.settings-trigger-btn:hover {
+  border-color: #D9D4F7;
+}
+
+.settings-trigger-icon {
+  width: 15px;
+  height: 15px;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 720px) {
+  .settings-layout {
+    flex-direction: column;
+  }
+
+  .settings-nav {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 4px;
+    padding-bottom: 4px;
+  }
+
+  .settings-nav-item {
+    flex-shrink: 0;
+  }
+
+  .settings-field,
+  .settings-toggle-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .settings-input,
+  .settings-select {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .settings-chip-group {
+    justify-content: flex-start;
+    max-width: none;
+  }
+}
