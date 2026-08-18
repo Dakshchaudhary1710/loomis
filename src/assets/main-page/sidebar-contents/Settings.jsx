@@ -342,7 +342,7 @@ export default function Settings() {
 
 export function SettingsButton() {
   return (
-    <Link to="/settings" className="settings-trigger-btn">
+    <Link to="/main/settings" className="settings-trigger-btn">
       <FiSettings className="settings-trigger-icon" />
       Settings
     </Link>

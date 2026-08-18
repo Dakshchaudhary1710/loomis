@@ -1,0 +1,283 @@
+.profile-page {
+  padding: 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Header */
+.profile-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.profile-hero {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-hero-avatar-wrap {
+  position: relative;
+}
+
+.profile-hero-avatar {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: #1e1b4b;
+  color: #a78bfa;
+  font-size: 28px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-avatar-edit-btn {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: #38bdf8;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.profile-hero-info h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1e1b4b;
+}
+
+.profile-hero-role {
+  margin: 2px 0 8px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.profile-hero-meta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.profile-hero-meta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.profile-edit-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  color: #1e1b4b;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.profile-edit-btn:hover {
+  background: #f5f3ff;
+  border-color: #a78bfa;
+}
+
+/* Stats */
+.profile-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.profile-stat-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid #eef0f4;
+}
+
+.profile-stat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #f5f3ff;
+  color: #7c3aed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.profile-stat-value {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e1b4b;
+}
+
+.profile-stat-label {
+  margin: 0;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* Layout */
+.profile-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.profile-main,
+.profile-side {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profile-section {
+  background: #fff;
+  border: 1px solid #eef0f4;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.profile-section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1e1b4b;
+}
+
+.profile-bio-text {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.profile-textarea {
+  width: 100%;
+  min-height: 90px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.profile-textarea:focus {
+  outline: none;
+  border-color: #a78bfa;
+}
+
+/* Chips */
+.profile-chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.profile-chip {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #f5f3ff;
+  color: #6d28d9;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Activity */
+.profile-activity-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.profile-activity-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.profile-activity-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #38bdf8;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.profile-activity-title {
+  margin: 0;
+  font-size: 14px;
+  color: #1e1b4b;
+}
+
+.profile-activity-time {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* Badges */
+.profile-badge-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #fafafa;
+  color: #1e1b4b;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.profile-badge svg {
+  color: #f59e0b;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .profile-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+}

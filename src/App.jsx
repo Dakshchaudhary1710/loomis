@@ -6,6 +6,7 @@ import Studyplan from "./assets/main-page/sidebar-contents/Studyplan";
 
 import Questionbank from "./assets/main-page/sidebar-contents/Questionbank";
 import Settings from "./assets/main-page/sidebar-contents/Settings";
+import Profile from "./assets/main-page/main-page-items/HeaderMain-items/Profile";
 
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ResumeAnalysis from "./assets/main-page/sidebar-contents/ResumeAnalysis";
@@ -23,6 +24,7 @@ export default function App() {
           <Route path="resumeanalysis" element={<ResumeAnalysis />} />
           <Route path="questionbank" element={<Questionbank />} />
           <Route path="settings" element={<Settings />} />
+          <Route path="profile" element={<Profile />} />
         </Route>
       </Routes>
     </BrowserRouter>
