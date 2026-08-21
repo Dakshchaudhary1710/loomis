@@ -36,9 +36,7 @@ export default function Body(){
               Start  <FaArrowRight />
             </button>
           </Link>
-          <button className="middle-btn-secondary">
-            Explore Features <FaPlay />
-          </button>
+         
         </div>
 
         <div className="middle-checklist">
