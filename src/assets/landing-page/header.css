@@ -1,240 +1,743 @@
-.full-head{
+/* =========================
+   GLOBAL THEME
+========================= */
+
+:root {
+  --primary: #6644c3;
+  --primary-light: #8066d6;
+  --primary-dark: #5636a8;
+
+  --text-dark: #20212a;
+  --text-medium: #555766;
+  --text-light: #9295a3;
+
+  --border: #e6e6ed;
+  --white: #ffffff;
+
+  --shadow-sm: 0 4px 15px rgba(30, 20, 70, 0.06);
+  --shadow-md: 0 10px 30px rgba(30, 20, 70, 0.10);
+  --shadow-primary: 0 10px 30px rgba(102, 68, 195, 0.22);
+
+  --transition: 0.25s ease;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.full-head {
   height: 90px;
   width: 100%;
-display: flex;
-border-bottom: solid;
-border-width: 1px;
+
+  display: flex;
+  align-items: center;
+
+  border-bottom: 1px solid var(--border);
+
+  background: rgba(255, 255, 255, 0.92);
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  transition: box-shadow var(--transition);
 }
-.left-part{
+
+.full-head:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+
+/* =========================
+   LEFT PART
+========================= */
+
+.left-part {
   width: 22%;
   height: 100%;
-  display: flex;
-align-items: center;
-}
-.left-title-icon{
-margin-right: 10px;
 
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  box-sizing: border-box;
 }
-.left-title{
-font-size: 28px;
-font-weight: 700;
-color: #6644c3;
+
+.left-title-icon {
+  margin-right: 10px;
+
+  transition:
+    transform var(--transition),
+    filter var(--transition);
+
+  cursor: pointer;
 }
-.middle-part{
+
+.left-title-icon:hover {
+  transform: rotate(-8deg) scale(1.08);
+  filter: drop-shadow(0 4px 8px rgba(102, 68, 195, 0.25));
+}
+
+.left-title {
+  font-size: 28px;
+  font-weight: 700;
+
+  color: var(--primary);
+
+  cursor: pointer;
+
+  transition:
+    transform var(--transition),
+    color var(--transition);
+}
+
+.left-title:hover {
+  color: var(--primary-light);
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   MIDDLE NAVIGATION
+========================= */
+
+.middle-part {
   width: 40%;
   height: 100%;
-display: flex;
-align-items: center;
-margin-right: 5px;
-justify-content: space-between;
 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
+  margin-right: 5px;
 }
-.middle-elements{
+
+.middle-elements {
+  position: relative;
 
   font-size: 16px;
   font-weight: 700;
+
+  color: var(--text-dark);
+
   cursor: pointer;
 
+  padding: 8px 4px;
+
+  transition:
+    color var(--transition),
+    transform var(--transition);
 }
-.middle-elements:hover{
-color: rgba(116, 78, 169, 0.906);
+
+/* Animated underline */
+
+.middle-elements::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background: var(--primary);
+
+  transform: scaleX(0);
+  transform-origin: center;
+
+  transition: transform var(--transition);
 }
-.right-part{
+
+.middle-elements:hover {
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.middle-elements:hover::after {
+  transform: scaleX(1);
+}
+
+
+/* =========================
+   RIGHT PART
+========================= */
+
+.right-part {
   width: 38%;
   height: 100%;
 
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  padding-right: 10px;
+  box-sizing: border-box;
 }
-.right-end{
+
+.right-end {
   display: flex;
   align-items: center;
-
   height: 100%;
 }
+
+
+/* =========================
+   LOGIN BUTTON
+========================= */
+
 .right-end-1 {
-  margin-right: 8px;
+  margin-right: 10px;
+
   cursor: pointer;
+
   font-size: 15px;
   font-weight: 500;
 
-  width: 70px;
-  height: 38px;
+  width: 78px;
+  height: 40px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: #ffffff;
-  color: #6644c3;
+  background: var(--white);
+  color: var(--primary);
 
-  border: 1px solid #6644c3;
-  border-radius: 9px;
+  border: 1px solid var(--primary);
+  border-radius: 10px;
 
-  transition: all 0.2s ease;
+  transition:
+    background var(--transition),
+    color var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
 }
+
 .right-end-1:hover {
-  background: #6644c3;
-  color: #ffffff;
-  box-shadow: 0 4px 12px rgba(102, 68, 195, 0.25);
-  transform: translateY(-1px);
+  background: var(--primary);
+  color: var(--white);
+
+  box-shadow: var(--shadow-primary);
+
+  transform: translateY(-2px);
 }
-.right-end-2{
-  height: 40px;
+
+.right-end-1:active {
+  transform: translateY(0) scale(0.97);
+}
+
+
+/* =========================
+   GET STARTED BUTTON
+========================= */
+
+.right-end-2 {
+  height: 42px;
   width: 170px;
+
   font-size: 15px;
   font-weight: 600;
- background-color: rgb(148, 142, 241);
- color: #ffffff;
- border-radius: 10px;
- border: none;
- align-items: center;
-display: flex;
- justify-content: center;
- cursor: pointer;
- transition: all 0.2s ease;
+
+  background: linear-gradient(
+    135deg,
+    #6644c3,
+    #8066d6
+  );
+
+  color: var(--white);
+
+  border-radius: 10px;
+  border: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  box-shadow: 0 5px 15px rgba(102, 68, 195, 0.18);
+
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    background var(--transition);
 }
-.right-end-2:hover{
-  background-color: rgb(128, 121, 232);
-  box-shadow: 0 4px 12px rgba(102, 68, 195, 0.25);
-  transform: translateY(-1px);
+
+.right-end-2:hover {
+  background: linear-gradient(
+    135deg,
+    #5636a8,
+    #7359cb
+  );
+
+  box-shadow: 0 10px 25px rgba(102, 68, 195, 0.30);
+
+  transform: translateY(-3px);
 }
+
+.right-end-2:active {
+  transform: translateY(-1px) scale(0.97);
+}
+
+
+/* =========================
+   SELECT
+========================= */
+
 .modal select {
   width: 100%;
+
   padding: 14px 16px;
+
   border: 1px solid #ddd;
   border-radius: 10px;
+
   font-size: 16px;
+
   outline: none;
+
   box-sizing: border-box;
+
   background: white;
+
   margin-bottom: 15px;
+
+  cursor: pointer;
+
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
+}
+
+.modal select:hover {
+  border-color: #b8a8e8;
 }
 
 .modal select:focus {
-  border-color: #6C3CF0;
-  box-shadow: 0 0 0 3px rgba(108, 60, 240, 0.15);
+  border-color: #6c3cf0;
+
+  box-shadow:
+    0 0 0 3px rgba(108, 60, 240, 0.15);
+
+  transform: translateY(-1px);
 }
 
 
-/* ================= PRICING MODAL ================= */
+/* =========================
+   PRICING MODAL
+========================= */
 
-.pricing-subtitle{
+.pricing-subtitle {
   color: #eff0f3;
+
   font-size: 14px;
+
   margin-top: -8px;
   margin-bottom: 20px;
 }
 
-.pricing-plans{
+
+.pricing-plans {
   display: flex;
-  gap: 14px;
+
+  gap: 18px;
 }
 
-.pricing-card{
+
+/* =========================
+   PRICING CARD
+========================= */
+
+.pricing-card {
   flex: 1;
-  border: 1px solid #e3e4eb;
-  border-radius: 14px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 16px;
+
   padding: 20px;
+
   position: relative;
+
   box-sizing: border-box;
+
+  background: white;
+
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
 }
 
-.pricing-card--pro{
-  border-color: #6644c3;
-  background: #faf9ff;
+.pricing-card:hover {
+  transform: translateY(-7px);
+
+  border-color: #cfc5ec;
+
+  box-shadow: var(--shadow-md);
 }
 
-.pricing-card-badge{
+
+/* =========================
+   PRO CARD
+========================= */
+
+.pricing-card--pro {
+  border-color: var(--primary);
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #faf9ff
+    );
+
+  box-shadow:
+    0 5px 20px rgba(102, 68, 195, 0.10);
+}
+
+.pricing-card--pro:hover {
+  box-shadow:
+    0 15px 40px rgba(102, 68, 195, 0.20);
+}
+
+
+/* =========================
+   BADGE
+========================= */
+
+.pricing-card-badge {
   position: absolute;
-  top: -2px;
+
+  top: -10px;
   right: 16px;
-color: white;
-background-color: #6C3CF0;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6644c3,
+      #8066d6
+    );
 
   font-size: 11px;
+
   font-weight: 700;
 
-  padding: 3px 10px;
+  padding: 5px 12px;
+
   border-radius: 999px;
+
+  box-shadow:
+    0 4px 10px rgba(102, 68, 195, 0.25);
+
+  animation: badgeFloat 2.5s ease-in-out infinite;
 }
 
-.pricing-card-name{
+@keyframes badgeFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+
+/* =========================
+   PLAN NAME
+========================= */
+
+.pricing-card-name {
   font-size: 14px;
+
   font-weight: 700;
+
   color: #292b35;
+
   margin: 0 0 6px;
 }
 
-.pricing-card-price{
-  font-size: 28px;
+
+/* =========================
+   PRICE
+========================= */
+
+.pricing-card-price {
+  font-size: 30px;
+
   font-weight: 700;
+
   color: #1a1a24;
-  margin: 0 0 14px;
+
+  margin: 0 0 16px;
+
+  transition: color var(--transition);
 }
 
-.pricing-card-price span{
+.pricing-card:hover .pricing-card-price {
+  color: var(--primary);
+}
+
+.pricing-card-price span {
   font-size: 13px;
+
   font-weight: 500;
-  color: #9295a3;
+
+  color: var(--text-light);
 }
 
-.pricing-card-features{
+
+/* =========================
+   FEATURES
+========================= */
+
+.pricing-card-features {
   list-style: none;
+
   padding: 0;
-  margin: 0 0 18px;
+
+  margin: 0 0 20px;
 
   display: flex;
+
   flex-direction: column;
-  gap: 8px;
+
+  gap: 10px;
 }
 
-.pricing-card-features li{
+.pricing-card-features li {
   font-size: 13px;
+
   color: #4b4d57;
-  padding-left: 18px;
+
+  padding-left: 22px;
+
   position: relative;
+
+  transition:
+    transform var(--transition),
+    color var(--transition);
 }
 
-.pricing-card-features li::before{
+.pricing-card-features li::before {
   content: "✓";
-  position: absolute;
-  left: 0;
-  color: #6644c3;
-  font-weight: 700;
-}
 
-.pricing-cta{
-  width: 100%;
-  height: 42px;
+  position: absolute;
+
+  left: 0;
+
+  width: 17px;
+  height: 17px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border: none;
-  border-radius: 9px;
+  color: white;
 
-  background: #6644c3;
-  color: #ffffff;
+  background: var(--primary);
+
+  border-radius: 50%;
+
+  font-size: 10px;
+
+  font-weight: 700;
+}
+
+.pricing-card-features li:hover {
+  color: var(--primary);
+
+  transform: translateX(4px);
+}
+
+
+/* =========================
+   PRICING CTA
+========================= */
+
+.pricing-cta {
+  width: 100%;
+
+  height: 44px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6644c3,
+      #8066d6
+    );
+
+  color: white;
 
   font-size: 14px;
+
   font-weight: 600;
 
   cursor: pointer;
-  transition: all 0.2s ease;
+
+  box-shadow:
+    0 5px 15px rgba(102, 68, 195, 0.15);
+
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    background var(--transition);
 }
 
-.pricing-cta:hover{
-  background: #5636a8;
-  box-shadow: 0 4px 12px rgba(102, 68, 195, 0.25);
-  transform: translateY(-1px);
+.pricing-cta:hover {
+  background:
+    linear-gradient(
+      135deg,
+      #5636a8,
+      #7359cb
+    );
+
+  box-shadow:
+    0 10px 25px rgba(102, 68, 195, 0.28);
+
+  transform: translateY(-2px);
 }
 
-@media (max-width: 480px){
-  .pricing-plans{
+.pricing-cta:active {
+  transform: scale(0.97);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+  .left-part {
+    width: 25%;
+  }
+
+  .middle-part {
+    width: 45%;
+  }
+
+  .right-part {
+    width: 30%;
+  }
+
+  .right-end-2 {
+    width: 130px;
+  }
+
+  .middle-elements {
+    font-size: 14px;
+  }
+}
+
+
+@media (max-width: 650px) {
+
+  .full-head {
+    height: auto;
+
+    min-height: 75px;
+
+    flex-wrap: wrap;
+
+    padding: 10px;
+  }
+
+  .left-part {
+    width: 50%;
+    height: 55px;
+  }
+
+  .right-part {
+    width: 50%;
+    height: 55px;
+  }
+
+  .middle-part {
+    order: 3;
+
+    width: 100%;
+
+    height: 50px;
+
+    justify-content: space-around;
+
+    border-top: 1px solid var(--border);
+
+    margin-top: 5px;
+  }
+
+  .pricing-plans {
     flex-direction: column;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .left-title {
+    font-size: 24px;
+  }
+
+  .right-end-1 {
+    width: 65px;
+  }
+
+  .right-end-2 {
+    width: 120px;
+
+    font-size: 14px;
+  }
+
+  .pricing-card {
+    padding: 18px;
+  }
+}
+
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+button:focus-visible,
+.middle-elements:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba(102, 68, 195, 0.30);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+
+    transition: none !important;
   }
 }
