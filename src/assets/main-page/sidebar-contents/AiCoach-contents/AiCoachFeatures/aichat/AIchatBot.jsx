@@ -1,43 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./AIchatBot.css";
 
-/**
- * AI Coach Chatbot
- * -----------------
- * Drop-in chat panel for the "AI chatbot" area of your AI Interview Coach app.
- *
- * HOW THIS IS WIRED FOR NOW (mock mode):
- * - `sendToBackend()` is the ONLY function you need to replace later.
- *   Right now it fakes a network delay and returns canned/generated
- *   responses based on simple keyword matching + quick actions.
- * - When you build the real backend, replace the body of `sendToBackend`
- *   with a `fetch("/api/chat", {...})` call to your Claude-powered endpoint
- *   (see the tool-calling flow discussed earlier). Keep the same return
- *   shape: { role: "assistant", type: "text" | "plan" | "questions" | "schedule", content, data }
- *   and everything else (UI, state, rendering) keeps working unchanged.
- *
- * QUICK ACTIONS:
- * The chips under the input map to canned prompts. In production these
- * would still just send a normal user message — the backend's tool-calling
- * logic decides what to do with it, exactly like a typed message would.
- */
-
 const QUICK_ACTIONS = [
   { id: "plan", label: "📅 Build a study plan", prompt: "Help me build a 2-week study plan for backend interviews" },
   { id: "questions", label: "❓ Generate questions", prompt: "Generate 5 behavioral interview questions" },
   { id: "schedule", label: "🗓️ Schedule a session", prompt: "Schedule a mock interview for this Friday at 5 PM" },
 ];
 
-const INITIAL_MESSAGE = {
-  id: "welcome",
-  role: "assistant",
-  type: "text",
-  content:
-    "Hey Daksh 👋 I'm your AI Coach. I can build you a study plan, generate practice questions, or schedule a mock interview. What do you want to work on?",
-};
-
-export default function AIchatBot() {
-  const [messages, setMessages] = useState([INITIAL_MESSAGE]);
+export default function AIchatBot({ activeConversation, onSendMessage, externalPrompt }) {
+  const messages = activeConversation?.messages || [];
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const scrollRef = useRef(null);
@@ -46,28 +17,35 @@ export default function AIchatBot() {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
   }, [messages, isTyping]);
 
+  useEffect(() => {
+    if (externalPrompt) {
+      handleSend(externalPrompt);
+    }
+  }, [externalPrompt]);
+
   async function handleSend(text) {
     const trimmed = (text ?? input).trim();
     if (!trimmed || isTyping) return;
 
     const userMessage = { id: crypto.randomUUID(), role: "user", type: "text", content: trimmed };
-    setMessages((prev) => [...prev, userMessage]);
     setInput("");
     setIsTyping(true);
 
+    // Temporarily notify parent of user message
+    onSendMessage && onSendMessage(userMessage, null);
+
     try {
-      const reply = await sendToBackend(trimmed, messages);
-      setMessages((prev) => [...prev, { id: crypto.randomUUID(), ...reply }]);
+      const replyData = await sendToBackend(trimmed);
+      const botMessage = { id: crypto.randomUUID(), ...replyData };
+      onSendMessage && onSendMessage(userMessage, botMessage);
     } catch (err) {
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: crypto.randomUUID(),
-          role: "assistant",
-          type: "text",
-          content: "Something went wrong on my end. Mind trying that again?",
-        },
-      ]);
+      const errorMessage = {
+        id: crypto.randomUUID(),
+        role: "assistant",
+        type: "text",
+        content: "Something went wrong on my end. Mind trying that again?",
+      };
+      onSendMessage && onSendMessage(userMessage, errorMessage);
     } finally {
       setIsTyping(false);
     }
@@ -85,10 +63,12 @@ export default function AIchatBot() {
       <div className="coach-chat__header">
         <div className="coach-chat__avatar">🤖</div>
         <div>
-          <div className="coach-chat__title">AI Coach</div>
+          <div className="coach-chat__title">
+            {activeConversation?.title || "AI Coach Chat"}
+          </div>
           <div className="coach-chat__status">
             <span className="coach-chat__dot" />
-            Online
+            Online & Ready
           </div>
         </div>
       </div>
@@ -116,7 +96,7 @@ export default function AIchatBot() {
       <div className="coach-chat__input-row">
         <textarea
           className="coach-chat__input"
-          placeholder="Ask about a study plan, questions, or scheduling..."
+          placeholder="Ask about a study plan, resume feedback, or interview prep..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
@@ -170,7 +150,7 @@ function StudyPlanCard({ intro, data }) {
     <div>
       {intro && <p className="coach-card-intro">{intro}</p>}
       <div className="coach-card coach-card--plan">
-        <div className="coach-card__label">📅 Study Plan</div>
+        <div className="coach-card__label">📅 Custom Study Plan</div>
         {data.days.map((day) => (
           <div key={day.day} className="coach-plan-day">
             <div className="coach-plan-day__title">Day {day.day} — {day.focus}</div>
@@ -218,33 +198,30 @@ function ScheduleCard({ intro, data }) {
 }
 
 /* ------------------------------ Mock backend ------------------------------ */
-/*
-  Replace this whole function with a real API call, e.g.:
 
-  async function sendToBackend(text, history) {
-    const res = await fetch("/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: text, history }),
-    });
-    if (!res.ok) throw new Error("Chat request failed");
-    return res.json(); // { role: "assistant", type, content, data }
-  }
-*/
 async function sendToBackend(text) {
-  await new Promise((r) => setTimeout(r, 700 + Math.random() * 500)); // simulate latency
+  await new Promise((r) => setTimeout(r, 600 + Math.random() * 400));
   const lower = text.toLowerCase();
+
+  if (lower.includes("resume")) {
+    return {
+      role: "assistant",
+      type: "text",
+      content:
+        "📄 **Resume Review Analysis Summary**:\n\n1. **Keywords & ATS**: Add explicit technologies like TypeScript, Docker, and AWS to match high-frequency ATS filters.\n2. **Impact Metrics**: Quantify your achievements (e.g., 'Improved page load speed by 35%').\n3. **Formatting**: Ensure single-column standard margins for maximum parser compatibility.\n\nWould you like me to generate tailored bullet points for your experience section?",
+    };
+  }
 
   if (lower.includes("study plan") || lower.includes("plan")) {
     return {
       role: "assistant",
       type: "plan",
-      content: "Here's a starter 3-day plan — I can extend this or focus it on a specific company.",
+      content: "Here's a 3-day targeted study plan customized for your technical prep:",
       data: {
         days: [
-          { day: 1, focus: "Data Structures", tasks: ["Arrays & Strings review", "10 LeetCode easy problems", "Read on Hashmaps"] },
-          { day: 2, focus: "System Design Basics", tasks: ["Load balancing & caching", "Design a URL shortener", "Watch 1 mock design interview"] },
-          { day: 3, focus: "Behavioral Prep", tasks: ["STAR method review", "Prep 3 stories", "Mock behavioral Q&A"] },
+          { day: 1, focus: "Data Structures & Strings", tasks: ["Review Sliding Window & Two Pointers", "Solve 5 LeetCode Mediums", "Brush up Hashmaps"] },
+          { day: 2, focus: "System Architecture", tasks: ["Load balancing & Redis caching", "Design a Scalable URL Shortener", "Study DB indexing"] },
+          { day: 3, focus: "Behavioral & STAR Method", tasks: ["Prepare 3 Leadership stories", "Practice Conflict Resolution responses", "Mock interview simulation"] },
         ],
       },
     };
@@ -254,14 +231,14 @@ async function sendToBackend(text) {
     return {
       role: "assistant",
       type: "questions",
-      content: "Here are 5 behavioral questions to practice:",
+      content: "Here are 5 recommended practice questions:",
       data: {
         questions: [
-          "Tell me about a time you disagreed with a teammate. How did you handle it?",
-          "Describe a project where you had to learn something new quickly.",
-          "Tell me about a time you missed a deadline. What happened?",
-          "Give an example of when you had to persuade someone to see things your way.",
-          "Describe a situation where you took initiative without being asked.",
+          "Tell me about a technical decision you made that you later regretted. How did you pivot?",
+          "How do you approach optimizing a slow database query in production?",
+          "Describe a situation where you had to push back on unrealistic product specifications.",
+          "Explain how you design microservices for high availability and fault tolerance.",
+          "Give an example of how you mentored a junior developer or onboarded a new teammate.",
         ],
       },
     };
@@ -271,8 +248,17 @@ async function sendToBackend(text) {
     return {
       role: "assistant",
       type: "schedule",
-      content: "Done — I've booked this in for you.",
-      data: { type: "Mock Interview", date: "Friday, Aug 14", time: "5:00 PM" },
+      content: "Great! I have scheduled your mock interview session.",
+      data: { type: "Fullstack Mock Interview", date: "Friday, Aug 28", time: "5:00 PM" },
+    };
+  }
+
+  if (lower.includes("google") || lower.includes("company")) {
+    return {
+      role: "assistant",
+      type: "text",
+      content:
+        "🎯 **Google Interview Preparation Strategy**:\n\n1. **Coding (2 Rounds)**: Focus heavily on Graphs (BFS/DFS), Dynamic Programming, and Tree Traversals.\n2. **System Design (1 Round)**: Be ready to talk about latency, throughput, consistency models, and distributed locks.\n3. **Googliness / Behavioral**: Focus on collaborative decision making, handling ambiguity, and user-first product mindset.",
     };
   }
 
@@ -280,6 +266,6 @@ async function sendToBackend(text) {
     role: "assistant",
     type: "text",
     content:
-      "I can help with that! Try asking me to build a study plan, generate practice questions, or schedule a mock interview session.",
+      "I'm here to coach you! You can ask me to review your resume, build a customized study plan, practice behavioral questions, or prepare for company-specific rounds.",
   };
 }

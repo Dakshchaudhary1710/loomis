@@ -1,15 +1,17 @@
 .settings-page {
-  --text: #1A1A24;
-  --text-muted: #9291A3;
-  --text-soft: #64748b;
-  --border: #E7E7EE;
-  --border-hover: #D9D4F7;
-  --accent: #6C3CF5;
-  --accent-soft: #F7F4FF;
+  --text: var(--text-primary);
+  --text-muted: var(--text-muted);
+  --text-soft: var(--text-secondary);
+  --border: var(--border-color);
+  --border-hover: var(--accent-color);
+  --accent: var(--accent-color);
+  --accent-soft: var(--accent-light);
 
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text-primary);
   width: 100%;
+  padding: 24px;
+  box-sizing: border-box;
 }
 
 
@@ -23,15 +25,15 @@
 }
 
 .settings-header-icon {
-  width: 22px;
-  height: 22px;
+  width: 28px;
+  height: 28px;
   color: var(--accent);
   flex-shrink: 0;
 }
 
 .settings-header h1 {
   margin: 0;
-  font-size: 24px;
+  font-size: 26px;
   color: var(--text);
 }
 
@@ -59,7 +61,7 @@
 
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
 }
 
 .settings-nav-item {
@@ -67,10 +69,10 @@
   align-items: center;
   gap: 10px;
 
-  border: none;
+  border: 1px solid transparent;
   background: transparent;
   border-radius: 10px;
-  padding: 10px 12px;
+  padding: 11px 14px;
 
   font-size: 13.5px;
   font-weight: 500;
@@ -88,6 +90,7 @@
 
 .settings-nav-item.is-active {
   background: var(--accent-soft);
+  border-color: var(--accent);
   color: var(--accent);
   font-weight: 600;
 }
@@ -105,17 +108,17 @@
   flex: 1;
   min-width: 0;
 
-  background: white;
-  border: 1px solid #e6e8f0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
   border-radius: 16px;
-  padding: 24px 28px;
+  padding: 28px;
 
-  box-shadow: 0 3px 15px rgba(30, 27, 75, 0.04);
+  box-shadow: var(--card-shadow);
 }
 
 .settings-content-title {
   margin: 0 0 20px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--text);
 }
@@ -138,7 +141,7 @@
 
 .settings-field-label p {
   margin: 0;
-  font-size: 13.5px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--text);
 }
@@ -158,15 +161,15 @@
 
 .settings-input,
 .settings-select {
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
 
-  padding: 8px 12px;
+  padding: 9px 13px;
 
-  font-size: 13px;
+  font-size: 13.5px;
   font-family: inherit;
-  color: var(--text);
-  background: #FFFFFF;
+  color: var(--text-primary);
+  background: var(--input-bg);
 
   min-width: 220px;
   outline: none;
@@ -179,12 +182,13 @@
 
 .settings-input:hover,
 .settings-select:hover {
-  border-color: var(--border-hover);
+  border-color: var(--accent-color);
 }
 
 .settings-input:focus,
 .settings-select:focus {
-  border-color: #8B7CF6;
+  border-color: var(--accent-color);
+  background: var(--bg-card);
 }
 
 
@@ -206,7 +210,7 @@
   justify-content: center;
 
   background: var(--accent-soft);
-  color: var(--accent);
+  color: var(--accent-color);
   font-size: 16px;
   font-weight: 700;
 
@@ -221,23 +225,23 @@
   align-items: center;
   gap: 6px;
 
-  border: 1px solid var(--border);
-  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  background: var(--input-bg);
   border-radius: 8px;
 
   padding: 8px 14px;
 
   font-size: 12.5px;
   font-weight: 600;
-  color: var(--text);
+  color: var(--text-primary);
 
   cursor: pointer;
   transition: border-color 0.15s ease;
 }
 
 .settings-btn-secondary:hover {
-  border-color: var(--border-hover);
-  background: var(--accent-soft);
+  border-color: var(--accent-color);
+  background: var(--accent-light);
 }
 
 .settings-btn-primary {
@@ -246,18 +250,18 @@
 
   padding: 10px 18px;
 
-  background: linear-gradient(90deg, #6738f5, #5425df);
+  background: var(--accent-color);
   color: white;
 
   font-size: 13px;
   font-weight: 600;
 
   cursor: pointer;
-  transition: box-shadow 0.15s ease;
+  transition: opacity 0.15s ease;
 }
 
 .settings-btn-primary:hover {
-  box-shadow: 0 6px 16px rgba(103, 56, 245, 0.25);
+  background: var(--accent-hover);
 }
 
 .settings-btn-danger {
@@ -266,7 +270,7 @@
   gap: 6px;
 
   border: 1px solid #F0B4B4;
-  background: #FFFFFF;
+  background: var(--bg-card);
   border-radius: 8px;
 
   padding: 8px 14px;
@@ -298,7 +302,7 @@
   margin: 0;
   font-size: 13.5px;
   font-weight: 600;
-  color: var(--text);
+  color: var(--text-primary);
 }
 
 .settings-switch {
@@ -320,12 +324,12 @@
   width: 40px;
   height: 22px;
   border-radius: 999px;
-  background: var(--border);
+  background: var(--border-color);
   transition: background 0.15s ease;
 }
 
 .settings-switch.is-on .settings-switch-track {
-  background: var(--accent);
+  background: var(--accent-color);
 }
 
 .settings-switch-thumb {
@@ -354,24 +358,24 @@
 }
 
 .settings-chip {
-  border: 1px solid var(--border);
-  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  background: var(--input-bg);
   border-radius: 999px;
 
   padding: 6px 12px;
 
   font-size: 12px;
   font-weight: 500;
-  color: var(--text-soft);
+  color: var(--text-secondary);
 
   cursor: pointer;
   transition: all 0.15s ease;
 }
 
 .settings-chip.is-selected {
-  border-color: var(--accent);
-  background: var(--accent-soft);
-  color: var(--accent);
+  border-color: var(--accent-color);
+  background: var(--accent-light);
+  color: var(--accent-color);
   font-weight: 600;
 }
 
@@ -380,30 +384,33 @@
 
 .settings-segmented {
   display: inline-flex;
-  background: #F5F4FB;
-  border-radius: 8px;
-  padding: 3px;
-  gap: 2px;
+  background: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 4px;
+  gap: 4px;
 }
 
 .settings-segmented-btn {
   border: none;
   background: transparent;
-  border-radius: 6px;
+  border-radius: 7px;
 
-  padding: 6px 14px;
+  padding: 8px 16px;
 
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 500;
-  color: var(--text-soft);
+  color: var(--text-secondary);
 
   cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
 .settings-segmented-btn.is-active {
-  background: #FFFFFF;
-  color: var(--text);
-  box-shadow: 0 1px 3px rgba(30, 27, 75, 0.1);
+  background: var(--bg-card);
+  color: var(--accent-color);
+  font-weight: 700;
+  box-shadow: var(--card-shadow);
 }
 
 
@@ -416,7 +423,7 @@
   gap: 20px;
 
   border: 1px solid #F5DADA;
-  background: #FFFAFA;
+  background: var(--bg-card);
   border-radius: 12px;
 
   padding: 14px 16px;
@@ -438,17 +445,18 @@
   justify-content: space-between;
   gap: 20px;
 
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-color);
   border-radius: 14px;
 
   padding: 18px 20px;
+  background: var(--input-bg);
 }
 
 .settings-plan-name {
   margin: 0 0 4px;
   font-size: 14px;
   font-weight: 700;
-  color: var(--text);
+  color: var(--text-primary);
 }
 
 
@@ -459,15 +467,15 @@
   align-items: center;
   gap: 6px;
 
-  border: 1px solid #E7E7EE;
+  border: 1px solid var(--border-color);
   border-radius: 8px;
-  background: #FFFFFF;
+  background: var(--bg-card);
 
   padding: 6px 12px;
 
   font-size: 12.5px;
   font-weight: 500;
-  color: #1A1A24;
+  color: var(--text-primary);
   text-decoration: none;
 
   cursor: pointer;
@@ -475,7 +483,7 @@
 }
 
 .settings-trigger-btn:hover {
-  border-color: #D9D4F7;
+  border-color: var(--accent-color);
 }
 
 .settings-trigger-icon {

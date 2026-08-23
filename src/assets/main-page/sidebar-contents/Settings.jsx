@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTheme } from "../../../context/ThemeContext";
 import {
   FiSettings,
   FiUser,
@@ -13,6 +14,7 @@ import {
   FiDownload,
   FiLogOut,
   FiTrash2,
+  FiCheck,
 } from "react-icons/fi";
 import "./Settings.css";
 
@@ -51,8 +53,27 @@ function Toggle({ label, description, checked, onChange }) {
 }
 
 function ProfilePanel() {
+  const [name, setName] = useState(() => localStorage.getItem("loomis_user_name") || "Daksh Chaudhary");
+  const [email, setEmail] = useState(() => localStorage.getItem("loomis_user_email") || "daksh@example.com");
+  const [timeZone, setTimeZone] = useState(() => localStorage.getItem("loomis_user_tz") || "ist");
+  const [savedMessage, setSavedMessage] = useState(false);
+
+  const handleSave = () => {
+    localStorage.setItem("loomis_user_name", name);
+    localStorage.setItem("loomis_user_email", email);
+    localStorage.setItem("loomis_user_tz", timeZone);
+    setSavedMessage(true);
+    setTimeout(() => setSavedMessage(false), 2500);
+  };
+
   return (
     <div className="settings-panel">
+      {savedMessage && (
+        <div style={{ padding: "10px 14px", background: "#dcfce7", color: "#16a34a", borderRadius: "8px", fontSize: "13px", fontWeight: "600", display: "flex", alignItems: "center", gap: "6px" }}>
+          <FiCheck /> Profile settings saved successfully!
+        </div>
+      )}
+
       <div className="settings-avatar-row">
         <div className="settings-avatar">DC</div>
         <div>
@@ -64,15 +85,31 @@ function ProfilePanel() {
       </div>
 
       <Field label="Full name">
-        <input type="text" defaultValue="" placeholder="Your name" className="settings-input" />
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Your name"
+          className="settings-input"
+        />
       </Field>
 
-      <Field label="Email" description="Used for login and notifications.">
-        <input type="email" defaultValue="" placeholder="you@example.com" className="settings-input" />
+      <Field label="Email" description="Used for login and AI Coach notifications.">
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="you@example.com"
+          className="settings-input"
+        />
       </Field>
 
       <Field label="Time zone">
-        <select className="settings-select" defaultValue="ist">
+        <select
+          className="settings-select"
+          value={timeZone}
+          onChange={(e) => setTimeZone(e.target.value)}
+        >
           <option value="ist">India Standard Time (IST)</option>
           <option value="pst">Pacific Time (PST)</option>
           <option value="est">Eastern Time (EST)</option>
@@ -80,9 +117,11 @@ function ProfilePanel() {
         </select>
       </Field>
 
-      <Field label="Password" description="Change your account password.">
-        <button type="button" className="settings-btn-secondary">Change password</button>
-      </Field>
+      <div style={{ marginTop: "12px", display: "flex", justifyContent: "flex-end" }}>
+        <button type="button" className="settings-btn-primary" onClick={handleSave}>
+          Save Changes
+        </button>
+      </div>
     </div>
   );
 }
@@ -97,7 +136,11 @@ const FOCUS_TOPICS = [
 ];
 
 function StudyPanel() {
-  const [focus, setFocus] = useState(["Data Structures & Algorithms"]);
+  const [goal, setGoal] = useState(() => localStorage.getItem("loomis_study_goal") || "30");
+  const [preferredTime, setPreferredTime] = useState(() => localStorage.getItem("loomis_study_time") || "evening");
+  const [level, setLevel] = useState(() => localStorage.getItem("loomis_study_level") || "intermediate");
+  const [focus, setFocus] = useState(["Data Structures & Algorithms", "System Design"]);
+  const [saved, setSaved] = useState(false);
 
   const toggleFocus = (topic) => {
     setFocus((prev) =>
@@ -105,10 +148,28 @@ function StudyPanel() {
     );
   };
 
+  const handleSave = () => {
+    localStorage.setItem("loomis_study_goal", goal);
+    localStorage.setItem("loomis_study_time", preferredTime);
+    localStorage.setItem("loomis_study_level", level);
+    setSaved(true);
+    setTimeout(() => setSaved(false), 2500);
+  };
+
   return (
     <div className="settings-panel">
-      <Field label="Daily study goal" description="Minutes per day to keep your streak.">
-        <select className="settings-select" defaultValue="30">
+      {saved && (
+        <div style={{ padding: "10px 14px", background: "#dcfce7", color: "#16a34a", borderRadius: "8px", fontSize: "13px", fontWeight: "600", display: "flex", alignItems: "center", gap: "6px" }}>
+          <FiCheck /> Study preferences updated!
+        </div>
+      )}
+
+      <Field label="Daily study goal" description="Minutes per day to maintain your streak.">
+        <select
+          className="settings-select"
+          value={goal}
+          onChange={(e) => setGoal(e.target.value)}
+        >
           <option value="15">15 minutes</option>
           <option value="30">30 minutes</option>
           <option value="60">1 hour</option>
@@ -117,22 +178,30 @@ function StudyPanel() {
       </Field>
 
       <Field label="Preferred study time">
-        <select className="settings-select" defaultValue="evening">
+        <select
+          className="settings-select"
+          value={preferredTime}
+          onChange={(e) => setPreferredTime(e.target.value)}
+        >
           <option value="morning">Morning</option>
           <option value="afternoon">Afternoon</option>
           <option value="evening">Evening</option>
         </select>
       </Field>
 
-      <Field label="Difficulty level">
-        <select className="settings-select" defaultValue="intermediate">
+      <Field label="Target difficulty level">
+        <select
+          className="settings-select"
+          value={level}
+          onChange={(e) => setLevel(e.target.value)}
+        >
           <option value="beginner">Beginner</option>
           <option value="intermediate">Intermediate</option>
           <option value="advanced">Advanced</option>
         </select>
       </Field>
 
-      <Field label="Focus topics" description="Your roadmap prioritizes these.">
+      <Field label="Focus topics" description="Your study roadmap prioritizes these.">
         <div className="settings-chip-group">
           {FOCUS_TOPICS.map((topic) => (
             <button
@@ -146,49 +215,83 @@ function StudyPanel() {
           ))}
         </div>
       </Field>
+
+      <div style={{ marginTop: "12px", display: "flex", justifyContent: "flex-end" }}>
+        <button type="button" className="settings-btn-primary" onClick={handleSave}>
+          Save Preferences
+        </button>
+      </div>
     </div>
   );
 }
 
 function MentorPanel() {
+  const [tone, setTone] = useState("encouraging");
+  const [responseLength, setResponseLength] = useState("detailed");
   const [autoSuggest, setAutoSuggest] = useState(true);
+  const [saved, setSaved] = useState(false);
+
+  const handleSave = () => {
+    setSaved(true);
+    setTimeout(() => setSaved(false), 2500);
+  };
 
   return (
     <div className="settings-panel">
+      {saved && (
+        <div style={{ padding: "10px 14px", background: "#dcfce7", color: "#16a34a", borderRadius: "8px", fontSize: "13px", fontWeight: "600", display: "flex", alignItems: "center", gap: "6px" }}>
+          <FiCheck /> AI Mentor configuration saved!
+        </div>
+      )}
+
       <Field label="Mentor tone">
-        <select className="settings-select" defaultValue="encouraging">
-          <option value="encouraging">Encouraging</option>
-          <option value="direct">Direct</option>
+        <select
+          className="settings-select"
+          value={tone}
+          onChange={(e) => setTone(e.target.value)}
+        >
+          <option value="encouraging">Encouraging & Supportive</option>
+          <option value="direct">Direct & Technical</option>
           <option value="balanced">Balanced</option>
         </select>
       </Field>
 
       <Field label="Response length">
-        <select className="settings-select" defaultValue="concise">
-          <option value="concise">Concise</option>
-          <option value="detailed">Detailed</option>
+        <select
+          className="settings-select"
+          value={responseLength}
+          onChange={(e) => setResponseLength(e.target.value)}
+        >
+          <option value="concise">Concise & Bullet Points</option>
+          <option value="detailed">Detailed & Step-by-Step</option>
         </select>
       </Field>
 
       <Toggle
         label="Auto-suggest next topic"
-        description="Let the mentor recommend what to study after each session."
+        description="Let the AI Mentor recommend what to study next based on your progress."
         checked={autoSuggest}
         onChange={() => setAutoSuggest((v) => !v)}
       />
+
+      <div style={{ marginTop: "12px", display: "flex", justifyContent: "flex-end" }}>
+        <button type="button" className="settings-btn-primary" onClick={handleSave}>
+          Save Mentor Settings
+        </button>
+      </div>
     </div>
   );
 }
 
 const NOTIFICATION_ITEMS = [
-  { key: "email", label: "Email notifications", description: "Account and security updates." },
-  { key: "reminders", label: "Study reminders", description: "Nudge me if I miss a daily goal." },
-  { key: "weekly", label: "Weekly performance summary", description: "A recap every Monday." },
-  { key: "mentor", label: "AI Mentor replies", description: "When the mentor responds to a message." },
+  { key: "email", label: "Email notifications", description: "Account security and weekly study digest." },
+  { key: "reminders", label: "Daily study reminders", description: "Get nudged if you miss your daily goal." },
+  { key: "weekly", label: "Weekly performance recap", description: "Performance report sent every Monday." },
+  { key: "mentor", label: "AI Mentor replies", description: "Notify when AI Mentor generates recommendations." },
 ];
 
 function NotificationsPanel() {
-  const [prefs, setPrefs] = useState({ email: true, reminders: true, weekly: true, mentor: false });
+  const [prefs, setPrefs] = useState({ email: true, reminders: true, weekly: true, mentor: true });
   const toggle = (key) => setPrefs((p) => ({ ...p, [key]: !p[key] }));
 
   return (
@@ -207,12 +310,15 @@ function NotificationsPanel() {
 }
 
 function AppearancePanel() {
-  const [theme, setTheme] = useState("light");
+  const { theme, setTheme } = useTheme();
   const options = ["light", "dark", "system"];
 
   return (
     <div className="settings-panel">
-      <Field label="Theme">
+      <Field
+        label="Theme"
+        description="Choose your preferred color theme. Dark mode applies globally across all dashboards."
+      >
         <div className="settings-segmented">
           {options.map((opt) => (
             <button
@@ -237,16 +343,16 @@ function PrivacyPanel() {
     <div className="settings-panel">
       <Toggle
         label="Two-factor authentication"
-        description="Add an extra step when signing in."
+        description="Add an extra layer of security when logging into Loomis."
         checked={twoFactor}
         onChange={() => setTwoFactor((v) => !v)}
       />
 
       <Field label="Active sessions" description="This device is currently signed in.">
-        <button type="button" className="settings-btn-secondary">Log out other devices</button>
+        <button type="button" className="settings-btn-secondary">Log out other sessions</button>
       </Field>
 
-      <Field label="Your data" description="Download a copy of your account data.">
+      <Field label="Your study data" description="Export your progress, notes, and AI chat history.">
         <button type="button" className="settings-btn-secondary">
           <FiDownload /> Export data
         </button>
@@ -255,7 +361,7 @@ function PrivacyPanel() {
       <div className="settings-danger-zone">
         <div>
           <p className="settings-danger-title">Log out</p>
-          <p className="settings-field-desc">Sign out of Loomis on this device.</p>
+          <p className="settings-field-desc">Sign out of Loomis on this browser session.</p>
         </div>
         <button type="button" className="settings-btn-secondary">
           <FiLogOut /> Log out
@@ -265,7 +371,7 @@ function PrivacyPanel() {
       <div className="settings-danger-zone">
         <div>
           <p className="settings-danger-title">Delete account</p>
-          <p className="settings-field-desc">Permanently remove your account and all study data.</p>
+          <p className="settings-field-desc">Permanently remove your account and all study history.</p>
         </div>
         <button type="button" className="settings-btn-danger">
           <FiTrash2 /> Delete account
@@ -280,12 +386,12 @@ function BillingPanel() {
     <div className="settings-panel">
       <div className="settings-plan-card">
         <div>
-          <p className="settings-plan-name">Free plan</p>
+          <p className="settings-plan-name">Pro Plan — Active</p>
           <p className="settings-field-desc">
-            Core roadmap, weekly performance, and limited AI Mentor messages.
+            Unlimited AI Coach messages, custom study roadmaps, and resume ATS analysis.
           </p>
         </div>
-        <button type="button" className="settings-btn-primary">Upgrade to Pro</button>
+        <button type="button" className="settings-btn-primary">Manage Plan</button>
       </div>
     </div>
   );
@@ -312,7 +418,7 @@ export default function Settings() {
         <FiSettings className="settings-header-icon" />
         <div>
           <h1>Settings</h1>
-          <p>Manage your account, study preferences, and AI Mentor.</p>
+          <p>Manage your account, theme, study preferences, and AI Mentor.</p>
         </div>
       </div>
 
