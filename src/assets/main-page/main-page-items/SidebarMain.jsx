@@ -11,44 +11,46 @@ import {
 import { HiBookOpen } from "react-icons/hi";
 
 import { FaQuoteLeft } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export default function Sidebar() {
   return (
     <div className="sidebar">
       {/* Logo / Heading */}
       <div className="title-mainpage">
-        <div className="sidebar-logo">
-          <div className="logo-icon">
-            {/* Minimal SVG Logo Icon for Loomis */}
-            <svg
-              width="70"
-              height="60"
-              viewBox="0 0 100 100"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle cx="50" cy="50" r="46" fill="#1E1B4B" />
-              <path
-                d="M 35 28 V 55 A 8 8 0 0 0 43 63 H 47 A 8 8 0 0 0 55 55 V 45 A 8 8 0 0 1 63 37 H 65 A 8 8 0 0 1 73 45 V 68"
-                stroke="#A78BFA"
-                strokeWidth="8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <polygon points="73,54 63,68 83,68" fill="#38BDF8" />
-            </svg>
-          </div>
+        <Link to="/" className="sidebar-logo-link" title="Back to Loomis Home">
+          <div className="sidebar-logo">
+            <div className="logo-icon">
+              {/* Minimal SVG Logo Icon for Loomis */}
+              <svg
+                width="70"
+                height="60"
+                viewBox="0 0 100 100"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="50" cy="50" r="46" fill="#1E1B4B" />
+                <path
+                  d="M 35 28 V 55 A 8 8 0 0 0 43 63 H 47 A 8 8 0 0 0 55 55 V 45 A 8 8 0 0 1 63 37 H 65 A 8 8 0 0 1 73 45 V 68"
+                  stroke="#A78BFA"
+                  strokeWidth="8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <polygon points="73,54 63,68 83,68" fill="#38BDF8" />
+              </svg>
+            </div>
 
-          <div className="title-mainpage-name">
-            <h2>
-              Loomis<span className="brand-accent"></span>
-            </h2>
-            <p style={{ color: "green" }} className="sidebar-slogan">
-              Learn. Practice. Build.
-            </p>
+            <div className="title-mainpage-name">
+              <h2>
+                Loomis<span className="brand-accent"></span>
+              </h2>
+              <p className="sidebar-slogan">
+                Learn • Practice • Master
+              </p>
+            </div>
           </div>
-        </div>
+        </Link>
       </div>
 
       {/* Sidebar Menu */}

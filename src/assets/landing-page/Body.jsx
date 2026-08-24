@@ -4,39 +4,50 @@ import { HiSparkles } from "react-icons/hi"
 import { FaArrowRight, FaPlay, FaCircleCheck } from "react-icons/fa6"
 
 const checklistItems = [
-  "Personalized for you",
-  "Track your progress",
-  "Job-ready roadmap",
+  "Personalized 4-Month Roadmaps",
+  "Real-Time AI Skill-Gap Analyzer",
+  "Deep Topic Mastery vs Course Completion",
+  "Goal Milestones & Verified Job-Readiness",
 ]
 
-export default function Body(){
-  return(
-    <div className="second-part">
+export default function Body() {
+  const handleScrollToLearningPaths = () => {
+    const el = document.getElementById("learning-paths");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <div className="second-part" id="hero">
       <div className="landing-part-middle-right">
 
         <div className="middle-badge">
           <HiSparkles />
-          <span>Your All-in-One Platform to Get Job Ready</span>
+          <span>AI-Powered Learning & Job-Readiness Platform</span>
         </div>
 
         <div className="middle-heading">
-          <div className="middle-heading-line1">Learn. Practice. Build.</div>
-          <div className="middle-heading-line2">Get Job Ready.</div>
+          <div className="middle-heading-line1">Learn. Practice.  Master.</div>
+          <div className="middle-heading-line2">Become Job-Ready.</div>
         </div>
 
         <div className="middle-desc">
-          Loomis is your personalized learning companion to master skills, build
-          projects, track progress, and land your dream job in the software
-          industry.
+          Don't just complete courses. Loomis brings together personalized learning
+          paths, targeted coding practice, deep topic mastery tracking, and AI skill-gap
+          guidance into one continuous platform.
         </div>
 
         <div className="middle-cta-row">
-          <Link to="/main">
+          <Link to="/main" style={{ textDecoration: "none" }}>
             <button className="middle-btn-primary">
-              Start  <FaArrowRight />
+              <span>Start Learning Path</span>
+              <FaArrowRight />
             </button>
           </Link>
-         
+          <button className="middle-btn-secondary" onClick={handleScrollToLearningPaths}>
+            <FaPlay /> Explore Learning Loop
+          </button>
         </div>
 
         <div className="middle-checklist">
@@ -110,7 +121,8 @@ export default function Body(){
               <span className="loomis-wordmark-dot">•</span>
               <span>Practice</span>
               <span className="loomis-wordmark-dot">•</span>
-              <span>Build</span>
+              <span>Master</span>
+             
             </div>
           </div>
 
