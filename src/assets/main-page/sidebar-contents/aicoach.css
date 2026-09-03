@@ -1,34 +1,34 @@
-.aiCoachPage{
-    display:flex;
-    width:100%;
-    height:calc(100vh - 90px);
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
+.aiCoachPage {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 72px);
+    background-color: #F7F6F2;
+    color: #202124;
 }
 
 /* Left */
 
-.historySection{
-    width:280px;
-    background-color: var(--bg-surface);
-    border-right:1px solid var(--border-color);
-    overflow-y:auto;
+.historySection {
+    width: 280px;
+    background-color: #FFFFFF;
+    border-right: 1px solid #E5E3DE;
+    overflow-y: auto;
 }
 
 /* Middle */
 
-.chatSection{
-    flex:1;
-    background-color: var(--bg-primary);
-    padding:16px;
-    overflow-y:auto;
+.chatSection {
+    flex: 1;
+    background-color: #F7F6F2;
+    padding: 16px;
+    overflow-y: auto;
 }
 
 /* Right */
 
-.toolsSection{
-    width:360px;
-    background-color: var(--bg-surface);
-    border-left:1px solid var(--border-color);
-    overflow-y:auto;
+.toolsSection {
+    width: 360px;
+    background-color: #FFFFFF;
+    border-left: 1px solid #E5E3DE;
+    overflow-y: auto;
 }

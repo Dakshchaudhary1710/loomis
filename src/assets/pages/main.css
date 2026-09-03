@@ -1,8 +1,8 @@
 .main-page {
     display: flex;
     height: 100vh;
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
+    background-color: #F7F6F2;
+    color: #202124;
     overflow: hidden;
 }
 
@@ -11,22 +11,22 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    background-color: var(--bg-primary);
+    background-color: #F7F6F2;
 }
 
 .headermain-body {
-    height: 90px;
-    background-color: var(--bg-header);
+    height: 72px;
+    background-color: #FFFFFF;
     flex-shrink: 0;
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid #E5E3DE;
 }
 
 .main-content {
     flex: 1;
     overflow-y: auto;
     width: 100%;
-    background-color: var(--bg-primary);
+    background-color: #F7F6F2;
 }

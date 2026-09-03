@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
 html {
@@ -10,80 +10,72 @@ html {
 }
 
 :root {
-  /* Rich Light Purple Theme */
-  --bg-primary: #f8f6ff;
-  --bg-surface: #ffffff;
-  --bg-card: #ffffff;
-  --bg-sidebar: linear-gradient(180deg, #1d1344 0%, #120a2e 100%);
-  --bg-header: rgba(255, 255, 255, 0.94);
-  --bg-footer: #0c0822;
-  --bg-footer-card: #160f38;
-  --bg-toolkit: radial-gradient(120% 100% at 50% 0%, #f4edff 0%, #faf8ff 55%, #ffffff 100%);
-  --bg-hero: linear-gradient(135deg, #ffffff 0%, #f7f3ff 35%, #ede2ff 70%, #e2d2ff 100%);
-  
-  --text-primary: #150f33;
-  --text-secondary: #584f7d;
-  --text-muted: #8e83b3;
-  --text-heading: #170d38;
-  
-  --border-color: #e8e1fa;
-  --border-subtle: #f0ebfd;
-  
-  --accent-color: #6d28d9;
-  --accent-hover: #5b21b6;
-  --accent-light: #f3e8ff;
-  --accent-gradient: linear-gradient(135deg, #7c3aed 0%, #9333ea 50%, #6366f1 100%);
-  --accent-glow: rgba(124, 58, 237, 0.26);
-  
-  --input-bg: #f5f0ff;
-  --input-border: #e4dafc;
-  
-  --glass-bg: rgba(255, 255, 255, 0.88);
-  --glass-border: rgba(232, 225, 250, 0.85);
-  
-  --card-shadow: 0 4px 6px -1px rgba(109, 40, 217, 0.05), 0 2px 4px -2px rgba(109, 40, 217, 0.05);
-  --card-shadow-hover: 0 20px 35px -10px rgba(109, 40, 217, 0.18), 0 8px 16px -4px rgba(0, 0, 0, 0.04);
+  /* Warm Ivory + Charcoal + Muted Navy Palette */
+  --bg-primary: #F7F6F2;
+  --bg-surface: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-sidebar: #FFFFFF;
+  --bg-header: rgba(255, 255, 255, 0.95);
+  --bg-footer: #202124;
+  --bg-footer-card: #2B2C30;
+
+  --text-primary: #202124;
+  --text-secondary: #6B6B68;
+  --text-muted: #8E8E8A;
+  --text-heading: #202124;
+
+  --border-color: #E5E3DE;
+  --border-subtle: #EBE9E4;
+
+  --accent-color: #3F5F8F;
+  --accent-hover: #324D75;
+  --accent-light: #E7EDF5;
+  --accent-gradient: linear-gradient(135deg, #3F5F8F 0%, #2D476E 100%);
+  --accent-glow: rgba(63, 95, 143, 0.12);
+
+  --success-color: #5E8065;
+  --success-light: #EEF4F0;
+
+  --input-bg: #FFFFFF;
+  --input-border: #E5E3DE;
+
+  --glass-bg: #FFFFFF;
+  --glass-border: #E5E3DE;
+
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
 [data-theme="dark"] {
-  /* Midnight Royal Violet Theme */
-  --bg-primary: #0a0618;
-  --bg-surface: #130c2c;
-  --bg-card: #181035;
-  --bg-sidebar: linear-gradient(180deg, #12092b 0%, #080314 100%);
-  --bg-header: rgba(19, 12, 44, 0.94);
-  --bg-footer: #070312;
-  --bg-footer-card: #0f0724;
-  --bg-toolkit: radial-gradient(120% 100% at 50% 0%, #1e1147 0%, #11082b 55%, #0a0618 100%);
-  --bg-hero: linear-gradient(135deg, #0e0724 0%, #1a0d42 40%, #24115c 75%, #0a0618 100%);
-  
-  --text-primary: #f5f2ff;
-  --text-secondary: #d4c5f9;
-  --text-muted: #9583c4;
-  --text-heading: #faf8ff;
-  
-  --border-color: #2f1d5e;
-  --border-subtle: #26164d;
-  
-  --accent-color: #a855f7;
-  --accent-hover: #c084fc;
-  --accent-light: #2d1359;
-  --accent-gradient: linear-gradient(135deg, #c084fc 0%, #a855f7 50%, #818cf8 100%);
-  --accent-glow: rgba(168, 85, 247, 0.42);
-  
-  --input-bg: #1d123d;
-  --input-border: #3b2470;
-  
-  --glass-bg: rgba(24, 16, 53, 0.88);
-  --glass-border: rgba(77, 47, 138, 0.6);
-  
-  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.45), 0 2px 4px -2px rgba(0, 0, 0, 0.35);
-  --card-shadow-hover: 0 20px 35px -10px rgba(168, 85, 247, 0.28), 0 8px 16px -4px rgba(0, 0, 0, 0.5);
+  /* Dark mode override matching the same clean Warm Navy/Charcoal tone */
+  --bg-primary: #F7F6F2;
+  --bg-surface: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-sidebar: #FFFFFF;
+  --bg-header: rgba(255, 255, 255, 0.95);
+
+  --text-primary: #202124;
+  --text-secondary: #6B6B68;
+  --text-muted: #8E8E8A;
+  --text-heading: #202124;
+
+  --border-color: #E5E3DE;
+  --border-subtle: #EBE9E4;
+
+  --accent-color: #3F5F8F;
+  --accent-hover: #324D75;
+  --accent-light: #E7EDF5;
+
+  --success-color: #5E8065;
+  --success-light: #EEF4F0;
+
+  --input-bg: #FFFFFF;
+  --input-border: #E5E3DE;
 }
 
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  transition: background-color 0.25s ease, color 0.25s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
   min-height: 100vh;
 }
