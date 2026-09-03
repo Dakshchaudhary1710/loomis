@@ -77,12 +77,7 @@ export default function SidebarMain() {
           className={({ isActive }) => `menu-item ${isActive ? "active" : ""}`}
         >
           <HiAcademicCap className="menu-icon" />
-          {!isCollapsed && (
-            <div className="menu-text-wrap">
-              <span>Study Plan</span>
-              <span className="menu-badge badge-active">Active</span>
-            </div>
-          )}
+          {!isCollapsed && <span>Study Plan</span>}
         </NavLink>
 
         <NavLink
@@ -90,12 +85,7 @@ export default function SidebarMain() {
           className={({ isActive }) => `menu-item ${isActive ? "active" : ""}`}
         >
           <HiBookOpen className="menu-icon" />
-          {!isCollapsed && (
-            <div className="menu-text-wrap">
-              <span>Practice</span>
-              <span className="menu-badge">Picked</span>
-            </div>
-          )}
+          {!isCollapsed && <span>Practice</span>}
         </NavLink>
 
         <NavLink
@@ -103,12 +93,7 @@ export default function SidebarMain() {
           className={({ isActive }) => `menu-item ${isActive ? "active" : ""}`}
         >
           <HiSparkles className="menu-icon icon-ai" />
-          {!isCollapsed && (
-            <div className="menu-text-wrap">
-              <span>Loomis AI</span>
-              <span className="menu-badge badge-ai">Coach</span>
-            </div>
-          )}
+          {!isCollapsed && <span>Loomis AI</span>}
         </NavLink>
 
         <NavLink
