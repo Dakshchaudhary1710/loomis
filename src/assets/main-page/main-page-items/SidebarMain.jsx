@@ -20,7 +20,7 @@ export default function SidebarMain() {
     <aside className={`sidebar ${isCollapsed ? "is-collapsed" : ""}`}>
       {/* Sidebar Top: Logo & Collapse Button */}
       <div className="sidebar-header">
-        <Link to="/main/overview" className="sidebar-logo-link" title="Loomis Adaptive Platform">
+        <Link to="/" className="sidebar-logo-link" title="Loomis Platform">
           <div className="sidebar-logo">
             <div className="logo-icon-wrap">
               <svg
@@ -45,7 +45,7 @@ export default function SidebarMain() {
             {!isCollapsed && (
               <div className="logo-text">
                 <h2>Loomis</h2>
-                <span className="logo-tag">Adaptive Engine</span>
+                <span className="logo-tag">Learn • Practice • Master</span>
               </div>
             )}
           </div>

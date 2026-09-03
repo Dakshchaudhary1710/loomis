@@ -11,7 +11,7 @@ export default function AdaptiveHero({ name = "Alex", streakCount = 14 }) {
         <div className="adaptive-hero-header">
           <div className="adaptive-badge">
             <HiSparkles className="badge-sparkle" />
-            <span>AI Adaptive Learning Engine</span>
+            <span>Learn • Practice • Master</span>
           </div>
           <div className="hero-streak-pill">
             <FaFire className="streak-fire" />
