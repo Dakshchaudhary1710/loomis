@@ -61,7 +61,7 @@ export default function Body() {
 
       </div>
 
-      {/* -------- Right side visual: glowing orb + wordmark -------- */}
+      {/* -------- Right side visual: orb + wordmark in Warm Ivory theme -------- */}
       <div className="landing-part-right-visual">
         <div className="loomis-orb-wrap">
 
@@ -77,8 +77,8 @@ export default function Body() {
                 cx="200" cy="200" rx="185" ry="90"
                 transform="rotate(-20 200 200)"
                 fill="none"
-                stroke="rgba(124,58,237,0.3)"
-                strokeWidth="1.5"
+                stroke="rgba(63, 95, 143, 0.25)"
+                strokeWidth="2"
               />
             </svg>
             <div className="loomis-orbit-dot"></div>
@@ -92,8 +92,8 @@ export default function Body() {
               <svg className="loomis-orb-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <linearGradient id="loomisLogoGradient" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stopColor="#A78BFA" />
-                    <stop offset="100%" stopColor="#38BDF8" />
+                    <stop offset="0%" stopColor="#FFFFFF" />
+                    <stop offset="100%" stopColor="#E7EDF5" />
                   </linearGradient>
                 </defs>
                 <path
@@ -103,7 +103,7 @@ export default function Body() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
-                <polygon points="73,54 63,68 83,68" fill="#38BDF8" />
+                <polygon points="73,54 63,68 83,68" fill="#5E8065" />
               </svg>
             </div>
 
@@ -122,7 +122,6 @@ export default function Body() {
               <span>Practice</span>
               <span className="loomis-wordmark-dot">•</span>
               <span>Master</span>
-             
             </div>
           </div>
 

@@ -1,133 +1,150 @@
+import React, { useState } from "react";
+import { NavLink, Link } from "react-router-dom";
 import "./SidebarMain.css";
 
 import {
   HiHome,
   HiSparkles,
   HiAcademicCap,
-  HiMicrophone,
   HiDocumentText,
   HiCog,
+  HiBookOpen,
+  HiChevronLeft,
+  HiChevronRight,
 } from "react-icons/hi";
-import { HiBookOpen } from "react-icons/hi";
 
-import { FaQuoteLeft } from "react-icons/fa";
-import { NavLink, Link } from "react-router-dom";
+export default function SidebarMain() {
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
-export default function Sidebar() {
   return (
-    <div className="sidebar">
-      {/* Logo / Heading */}
-      <div className="title-mainpage">
-        <Link to="/" className="sidebar-logo-link" title="Back to Loomis Home">
+    <aside className={`sidebar ${isCollapsed ? "is-collapsed" : ""}`}>
+      {/* Sidebar Top: Logo & Collapse Button */}
+      <div className="sidebar-header">
+        <Link to="/main/overview" className="sidebar-logo-link" title="Loomis Adaptive Platform">
           <div className="sidebar-logo">
-            <div className="logo-icon">
-              {/* Minimal SVG Logo Icon for Loomis */}
+            <div className="logo-icon-wrap">
               <svg
-                width="70"
-                height="60"
+                width="40"
+                height="40"
                 viewBox="0 0 100 100"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <circle cx="50" cy="50" r="46" fill="#1E1B4B" />
+                <circle cx="50" cy="50" r="46" fill="#E7EDF5" stroke="#3F5F8F" strokeWidth="4" />
                 <path
-                  d="M 35 28 V 55 A 8 8 0 0 0 43 63 H 47 A 8 8 0 0 0 55 55 V 45 A 8 8 0 0 1 63 37 H 65 A 8 8 0 0 1 73 45 V 68"
-                  stroke="#A78BFA"
+                  d="M 32 30 V 58 A 8 8 0 0 0 40 66 H 44 A 8 8 0 0 0 52 58 V 46 A 8 8 0 0 1 60 38 H 64 A 8 8 0 0 1 72 46 V 70"
+                  stroke="#3F5F8F"
                   strokeWidth="8"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
-                <polygon points="73,54 63,68 83,68" fill="#38BDF8" />
+                <polygon points="72,56 62,70 82,70" fill="#5E8065" />
               </svg>
             </div>
 
-            <div className="title-mainpage-name">
-              <h2>
-                Loomis<span className="brand-accent"></span>
-              </h2>
-              <p className="sidebar-slogan">
-                Learn • Practice • Master
-              </p>
-            </div>
+            {!isCollapsed && (
+              <div className="logo-text">
+                <h2>Loomis</h2>
+                <span className="logo-tag">Adaptive Engine</span>
+              </div>
+            )}
           </div>
         </Link>
+
+        <button
+          className="collapse-toggle-btn"
+          onClick={() => setIsCollapsed((prev) => !prev)}
+          title={isCollapsed ? "Expand Sidebar" : "Collapse Sidebar"}
+        >
+          {isCollapsed ? <HiChevronRight /> : <HiChevronLeft />}
+        </button>
       </div>
 
-      {/* Sidebar Menu */}
-      <div className="sidebar-menu">
-        {/* Overview */}
+      {/* Navigation Menu */}
+      <nav className="sidebar-menu">
+        <div className="menu-group-label">{!isCollapsed && "Core Platform"}</div>
+
         <NavLink
           to="/main/overview"
-          className={({ isActive }) =>
-            `menu-item ${isActive ? "active" : ""}`
-          }
+          className={({ isActive }) => `menu-item ${isActive ? "active" : ""}`}
         >
-          <HiHome />
-          <span>Overview</span>
+          <HiHome className="menu-icon" />
+          {!isCollapsed && <span>Dashboard</span>}
         </NavLink>
 
-        {/* AI Coach */}
-        <NavLink
-          to="/main/aicoach"
-          className={({ isActive }) =>
-            `menu-item ${isActive ? "active" : ""}`
-          }
-        >
-          <HiSparkles />
-          <span>AI Coach</span>
-        </NavLink>
-
-        {/* Study Plan */}
         <NavLink
           to="/main/studyplan"
-          className={({ isActive }) =>
-            `menu-item ${isActive ? "active" : ""}`
-          }
+          className={({ isActive }) => `menu-item ${isActive ? "active" : ""}`}
         >
-          <HiAcademicCap />
-          <span>Study Plan</span>
+          <HiAcademicCap className="menu-icon" />
+          {!isCollapsed && (
+            <div className="menu-text-wrap">
+              <span>Learn</span>
+              <span className="menu-badge badge-active">Active</span>
+            </div>
+          )}
         </NavLink>
 
-        {/* Resume Analysis */}
-        <NavLink
-          to="/main/resumeanalysis"
-          className={({ isActive }) =>
-            `menu-item ${isActive ? "active" : ""}`
-          }
-        >
-          <HiDocumentText />
-          <span>Resume Analysis</span>
-        </NavLink>
-
-        {/* Question Bank */}
         <NavLink
           to="/main/questionbank"
-          className={({ isActive }) =>
-            `menu-item ${isActive ? "active" : ""}`
-          }
+          className={({ isActive }) => `menu-item ${isActive ? "active" : ""}`}
         >
-          <HiBookOpen />
-          <span>Question Bank</span>
+          <HiBookOpen className="menu-icon" />
+          {!isCollapsed && (
+            <div className="menu-text-wrap">
+              <span>Practice</span>
+              <span className="menu-badge">Picked</span>
+            </div>
+          )}
         </NavLink>
 
-        {/* Settings */}
+        <NavLink
+          to="/main/aicoach"
+          className={({ isActive }) => `menu-item ${isActive ? "active" : ""}`}
+        >
+          <HiSparkles className="menu-icon icon-ai" />
+          {!isCollapsed && (
+            <div className="menu-text-wrap">
+              <span>Loomis AI</span>
+              <span className="menu-badge badge-ai">Coach</span>
+            </div>
+          )}
+        </NavLink>
+
+        <NavLink
+          to="/main/resumeanalysis"
+          className={({ isActive }) => `menu-item ${isActive ? "active" : ""}`}
+        >
+          <HiDocumentText className="menu-icon" />
+          {!isCollapsed && <span>Resume</span>}
+        </NavLink>
+
         <NavLink
           to="/main/settings"
-          className={({ isActive }) =>
-            `menu-item ${isActive ? "active" : ""}`
-          }
+          className={({ isActive }) => `menu-item ${isActive ? "active" : ""}`}
         >
-          <HiCog />
-          <span>Settings</span>
+          <HiCog className="menu-icon" />
+          {!isCollapsed && <span>Settings</span>}
         </NavLink>
-      </div>
+      </nav>
 
-      {/* Quote Card */}
-      <div className="quote-card">
-        <FaQuoteLeft />
-        <h3>Learn with purpose. Practice with intent. Build your future..</h3>
-        <p></p>
-      </div>
-    </div>
+      {/* Sidebar Footer: AI Assistant Widget */}
+      {!isCollapsed && (
+        <div className="sidebar-footer">
+          <div className="sidebar-ai-box">
+            <div className="ai-box-top">
+              <HiSparkles className="sparkle-gold" />
+              <span className="ai-box-title">Adaptive Engine</span>
+            </div>
+            <p className="ai-box-desc">
+              Loomis is analyzing your <strong>React state</strong> accuracy in real time.
+            </p>
+            <Link to="/main/aicoach" className="sidebar-ai-btn">
+              <span>Open Loomis AI</span>
+            </Link>
+          </div>
+        </div>
+      )}
+    </aside>
   );
 }

@@ -46,21 +46,21 @@ export default function Header() {
         <div className="left-part" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
           <div className="left-title-icon">
             <svg
-              width="54"
-              height="54"
+              width="50"
+              height="50"
               viewBox="0 0 100 100"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <circle cx="50" cy="50" r="46" fill="#1E1B4B" />
+              <circle cx="50" cy="50" r="46" fill="#E7EDF5" stroke="#3F5F8F" strokeWidth="4" />
               <path
                 d="M 35 28 V 55 A 8 8 0 0 0 43 63 H 47 A 8 8 0 0 0 55 55 V 45 A 8 8 0 0 1 63 37 H 65 A 8 8 0 0 1 73 45 V 68"
-                stroke="#A78BFA"
+                stroke="#3F5F8F"
                 strokeWidth="8"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
-              <polygon points="73,54 63,68 83,68" fill="#38BDF8" />
+              <polygon points="73,54 63,68 83,68" fill="#5E8065" />
             </svg>
           </div>
           <div className="left-title">Loomis</div>
@@ -100,7 +100,7 @@ export default function Header() {
             </div>
 
             <button className="right-end-2" onClick={() => setShowPricing(true)}>
-              <FaCrown style={{ color: "#FFD700", fontSize: "16px", marginRight: "8px" }} />
+              <FaCrown style={{ color: "#FFFFFF", fontSize: "15px", marginRight: "8px" }} />
               <span>Upgrade To Pro</span>
             </button>
           </div>
@@ -123,7 +123,7 @@ export default function Header() {
               <span
                 onClick={() => setIsLogin(false)}
                 style={{
-                  color: "#6C3CF0",
+                  color: "#3F5F8F",
                   cursor: "pointer",
                   fontWeight: "600",
                 }}
@@ -163,7 +163,7 @@ export default function Header() {
               <span
                 onClick={() => setIsLogin(true)}
                 style={{
-                  color: "#6C3CF0",
+                  color: "#3F5F8F",
                   cursor: "pointer",
                   fontWeight: "600",
                 }}
@@ -208,7 +208,7 @@ export default function Header() {
               <li>ATS Resume Optimization Engine</li>
             </ul>
             <button className="pricing-cta" onClick={handleGetPro}>
-              <FaCrown style={{ color: "#FFD700", fontSize: "16px", marginRight: "8px" }} />
+              <FaCrown style={{ color: "#FFFFFF", fontSize: "15px", marginRight: "8px" }} />
               Get Loomis Pro
             </button>
           </div>
