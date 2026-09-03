@@ -79,7 +79,7 @@ export default function SidebarMain() {
           <HiAcademicCap className="menu-icon" />
           {!isCollapsed && (
             <div className="menu-text-wrap">
-              <span>Learn</span>
+              <span>Study Plan</span>
               <span className="menu-badge badge-active">Active</span>
             </div>
           )}
