@@ -80,14 +80,8 @@ export default function Header() {
 
         <div className="right-part">
           <div className="right-end">
-            <button
-              className="header-theme-toggle"
-              onClick={toggleTheme}
-              title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-              aria-label="Toggle color theme"
-            >
-              {theme === "dark" ? <FiSun className="theme-icon sun" /> : <FiMoon className="theme-icon moon" />}
-            </button>
+           
+           
 
             <div
               className="right-end-1"
